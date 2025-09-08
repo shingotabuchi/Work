@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EyeFrame
+  m_Name: EyePupil
   m_Shader: {fileID: 4800000, guid: aae6d89bf797b664b9482d7b7f047ffa, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -30,7 +30,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2463
+  m_CustomRenderQueue: 2462
   stringTagMap:
     QUEUE: Transparent
     RenderType: Transparent
@@ -41,7 +41,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: cb6c6a20bd5ac864cba01453c48342d2, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -131,7 +131,7 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RenderQueue: 2463
+    - _RenderQueue: 2462
     - _RimIntensity: 0
     - _RimPower: 0.1
     - _ShadingStrength: 0
