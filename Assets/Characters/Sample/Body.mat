@@ -47,7 +47,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AlphaToMask: 0
+    - _BlendMode: 0
+    - _Cull: 2
     - _Cutoff: 0.5
+    - _DstBlend: 0
+    - _OutlineCull: 1
     - _OutlineFixWidth: 0.1
     - _OutlineVertexR2Width: 0
     - _OutlineWidth: 2
@@ -57,7 +62,10 @@ Material:
     - _ShadingStrength: 0.1
     - _ShadowSmoothness: 0.08
     - _ShadowThreshold: 0.05
+    - _SrcBlend: 1
+    - _Surface: 0
     - _UseOutlineWidthMask: 0
+    - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.9960785, g: 0.89019614, b: 0.8313726, a: 1}
     - _OutlineColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
