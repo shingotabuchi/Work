@@ -261,9 +261,8 @@ Shader "Custom/CoolToon"
                 // Sample base texture for alpha in transparency modes
                 float alpha = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv).a * _BaseColor.a;
                 
-                #ifdef _ALPHATEST_ON
-                    clip(alpha - _Cutoff);
-                #endif
+                // Always test alpha for stencil operations
+                clip(alpha - _Cutoff);
                 
                 #ifdef _OUTLINE_WIDTH_MASK
                     // Optional: modulate outline color with width mask
@@ -314,10 +313,8 @@ Shader "Custom/CoolToon"
             {
                 float4 baseSample = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv) * _BaseColor;
                 
-                // Alpha cutoff for cutout mode
-                #ifdef _ALPHATEST_ON
-                    clip(baseSample.a - _Cutoff);
-                #endif
+                // Always test alpha for stencil operations
+                clip(baseSample.a - _Cutoff);
 
                 float3 col = ShadeToon(baseSample.rgb, IN.normalWS, IN.viewDirWS, IN.positionWS);
                 col = MixFog(col, ComputeFogFactor(IN.positionCS.z));
@@ -415,10 +412,9 @@ Shader "Custom/CoolToon"
 
             half4 ShadowPassFragment(ShadowVaryings input) : SV_TARGET
             {
-                #ifdef _ALPHATEST_ON
-                    float alpha = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv).a * _BaseColor.a;
-                    clip(alpha - _Cutoff);
-                #endif
+                // Always test alpha for stencil operations
+                float alpha = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv).a * _BaseColor.a;
+                clip(alpha - _Cutoff);
                 return 0;
             }
             ENDHLSL
@@ -469,6 +465,9 @@ Shader "Custom/CoolToon"
 
             half4 DepthOnlyFragment(DepthOnlyVaryings input) : SV_TARGET
             {
+                // Always test alpha for stencil operations
+                float alpha = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv).a * _BaseColor.a;
+                clip(alpha - _Cutoff);
                 return 0;
             }
             ENDHLSL
