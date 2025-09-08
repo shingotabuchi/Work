@@ -9,6 +9,10 @@ Shader "Custom/CoolToon"
         _BaseColor ("Base Color", Color) = (1,1,1,1)
         _BaseMap ("Base Map", 2D) = "white" {}
         
+        [Header(Transparency)]
+        [Enum(Opaque,0,Cutout,1,Fade,2,Transparent,3)] _BlendMode ("Blend Mode", Float) = 0
+        _Cutoff ("Alpha Cutoff", Range(0,1)) = 0.5
+        
         [Header(Toon Shading)]
         _ShadowColor ("Shadow Color", Color) = (0.5,0.5,0.5,1)
         _ShadowThreshold ("Shadow Threshold", Range(0,1)) = 0.5
@@ -28,14 +32,19 @@ Shader "Custom/CoolToon"
         _OutlineFixWidth ("Fix Width (Distance Scale)", Range(0,1)) = 0.8
         [Enum(None,0,Red Channel,1,Alpha Channel,2)]_OutlineVertexR2Width ("Vertex Color Usage", Int) = 0
         _OutlineZBias ("Z Bias", Range(-1,1)) = 0
+        [Enum(UnityEngine.Rendering.CullMode)] _OutlineCull ("Outline Cull", Float) = 1
         
         [Header(Other)]
-        _Cutoff ("Alpha Cutoff", Range(0,1)) = 0.5
+        [Enum(UnityEngine.Rendering.CullMode)] _Cull ("Cull Mode", Float) = 2
+        [HideInInspector] _SrcBlend ("Src Blend", Float) = 1
+        [HideInInspector] _DstBlend ("Dst Blend", Float) = 0
+        [HideInInspector] _ZWrite ("Z Write", Float) = 1
+        [HideInInspector] _Surface ("Surface", Float) = 0
     }
 
     SubShader
     {
-        Tags{ "RenderType"="Opaque" "Queue"="Geometry-1" }
+        Tags{ "RenderType"="Opaque" "Queue"="Geometry" "RenderPipeline"="UniversalPipeline" }
 
         HLSLINCLUDE
         #pragma target 3.0
@@ -58,6 +67,9 @@ Shader "Custom/CoolToon"
             float  _OutlineZBias;
             int    _OutlineVertexR2Width;
             float  _Cutoff;
+            float  _BlendMode;
+            float  _Cull;
+            float  _OutlineCull;
         CBUFFER_END
 
         TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);
@@ -161,14 +173,16 @@ Shader "Custom/CoolToon"
         {
             Name "Outline"
             Tags{ "LightMode"="SRPDefaultUnlit" }
-            Cull Front
-            ZWrite On
+            Cull [_OutlineCull]
+            ZWrite [_ZWrite]
             ZTest LEqual
+            Blend [_SrcBlend] [_DstBlend]
 
             HLSLPROGRAM
             #pragma vertex OutlineVert
             #pragma fragment OutlineFrag
             #pragma multi_compile _ _OUTLINE_WIDTH_MASK
+            #pragma shader_feature_local _ALPHATEST_ON
 
             struct OutlineAttributes { 
                 float4 positionOS : POSITION; 
@@ -212,11 +226,21 @@ Shader "Custom/CoolToon"
             float4 OutlineFrag(OutlineVaryings IN) : SV_Target
             {
                 float4 outlineColor = _OutlineColor;
+                
+                // Sample base texture for alpha in transparency modes
+                float alpha = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv).a * _BaseColor.a;
+                
+                #ifdef _ALPHATEST_ON
+                    clip(alpha - _Cutoff);
+                #endif
+                
                 #ifdef _OUTLINE_WIDTH_MASK
                     // Optional: modulate outline color with width mask
                     float mask = SAMPLE_TEXTURE2D(_OutlineWidthMask, sampler_OutlineWidthMask, IN.uv).r;
                     outlineColor.rgb *= mask;
                 #endif
+                
+                outlineColor.a *= alpha;
                 return outlineColor;
             }
             ENDHLSL
@@ -228,9 +252,9 @@ Shader "Custom/CoolToon"
             Name "ForwardLit"
             Tags{ "LightMode"="UniversalForward" }
 
-            Blend One Zero
-            ZWrite On
-            Cull Back
+            Blend [_SrcBlend] [_DstBlend]
+            ZWrite [_ZWrite]
+            Cull [_Cull]
 
             HLSLPROGRAM
             #pragma vertex ToonVert
@@ -241,15 +265,26 @@ Shader "Custom/CoolToon"
             #pragma multi_compile _ _ADDITIONAL_LIGHT_SHADOWS
             #pragma multi_compile _ _SHADOWS_SOFT
             #pragma multi_compile_fog
+            #pragma shader_feature_local _ALPHATEST_ON
+            #pragma shader_feature_local _ALPHAPREMULTIPLY_ON
 
             float4 ToonFrag(Varyings IN) : SV_Target
             {
                 float4 baseSample = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv) * _BaseColor;
-                // Optional alpha cutoff (uncomment if needed)
-                // clip(baseSample.a - _Cutoff);
+                
+                // Alpha cutoff for cutout mode
+                #ifdef _ALPHATEST_ON
+                    clip(baseSample.a - _Cutoff);
+                #endif
 
                 float3 col = ShadeToon(baseSample.rgb, IN.normalWS, IN.viewDirWS, IN.positionWS);
                 col = MixFog(col, ComputeFogFactor(IN.positionCS.z));
+                
+                // Handle alpha premultiply for transparency
+                #ifdef _ALPHAPREMULTIPLY_ON
+                    col *= baseSample.a;
+                #endif
+                
                 return float4(col, baseSample.a);
             }
             ENDHLSL
@@ -262,11 +297,12 @@ Shader "Custom/CoolToon"
             Tags{ "LightMode"="ShadowCaster" }
             ZWrite On
             ZTest LEqual
-            Cull Back
+            Cull [_Cull]
             HLSLPROGRAM
             #pragma vertex ShadowPassVertex
             #pragma fragment ShadowPassFragment
             #pragma multi_compile _ _CASTING_PUNCTUAL_LIGHT_SHADOW
+            #pragma shader_feature_local _ALPHATEST_ON
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Shadows.hlsl"
@@ -326,6 +362,10 @@ Shader "Custom/CoolToon"
 
             half4 ShadowPassFragment(ShadowVaryings input) : SV_TARGET
             {
+                #ifdef _ALPHATEST_ON
+                    float alpha = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv).a * _BaseColor.a;
+                    clip(alpha - _Cutoff);
+                #endif
                 return 0;
             }
             ENDHLSL
@@ -338,6 +378,7 @@ Shader "Custom/CoolToon"
             Tags{ "LightMode"="DepthOnly" }
             ZWrite On
             ColorMask 0
+            Cull [_Cull]
             HLSLPROGRAM
             #pragma vertex DepthOnlyVertex
             #pragma fragment DepthOnlyFragment
@@ -370,5 +411,6 @@ Shader "Custom/CoolToon"
         }
     }
 
+    CustomEditor "CoolToonEditor"
     Fallback Off
 }
