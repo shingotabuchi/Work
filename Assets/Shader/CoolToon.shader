@@ -40,6 +40,18 @@ Shader "Custom/CoolToon"
         [HideInInspector] _DstBlend ("Dst Blend", Float) = 0
         [HideInInspector] _ZWrite ("Z Write", Float) = 1
         [HideInInspector] _Surface ("Surface", Float) = 0
+        
+        [Header(Stencil)]
+        [IntRange] _StencilRef ("Stencil Reference", Range(0, 255)) = 0
+        [Enum(UnityEngine.Rendering.CompareFunction)] _StencilComp ("Stencil Compare", Float) = 8
+        [Enum(UnityEngine.Rendering.StencilOp)] _StencilPass ("Stencil Pass", Float) = 0
+        [Enum(UnityEngine.Rendering.StencilOp)] _StencilFail ("Stencil Fail", Float) = 0
+        [Enum(UnityEngine.Rendering.StencilOp)] _StencilZFail ("Stencil ZFail", Float) = 0
+        [IntRange] _StencilWriteMask ("Stencil Write Mask", Range(0, 255)) = 255
+        [IntRange] _StencilReadMask ("Stencil Read Mask", Range(0, 255)) = 255
+        
+        [Header(Render Queue)]
+        [IntRange] _RenderQueue ("Render Queue", Range(-1, 5000)) = -1
     }
 
     SubShader
@@ -70,6 +82,14 @@ Shader "Custom/CoolToon"
             float  _BlendMode;
             float  _Cull;
             float  _OutlineCull;
+            int    _StencilRef;
+            float  _StencilComp;
+            float  _StencilPass;
+            float  _StencilFail;
+            float  _StencilZFail;
+            int    _StencilWriteMask;
+            int    _StencilReadMask;
+            int    _RenderQueue;
         CBUFFER_END
 
         TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);
@@ -177,6 +197,17 @@ Shader "Custom/CoolToon"
             ZWrite [_ZWrite]
             ZTest LEqual
             Blend [_SrcBlend] [_DstBlend]
+            
+            Stencil
+            {
+                Ref [_StencilRef]
+                Comp [_StencilComp]
+                Pass [_StencilPass]
+                Fail [_StencilFail]
+                ZFail [_StencilZFail]
+                WriteMask [_StencilWriteMask]
+                ReadMask [_StencilReadMask]
+            }
 
             HLSLPROGRAM
             #pragma vertex OutlineVert
@@ -255,6 +286,17 @@ Shader "Custom/CoolToon"
             Blend [_SrcBlend] [_DstBlend]
             ZWrite [_ZWrite]
             Cull [_Cull]
+            
+            Stencil
+            {
+                Ref [_StencilRef]
+                Comp [_StencilComp]
+                Pass [_StencilPass]
+                Fail [_StencilFail]
+                ZFail [_StencilZFail]
+                WriteMask [_StencilWriteMask]
+                ReadMask [_StencilReadMask]
+            }
 
             HLSLPROGRAM
             #pragma vertex ToonVert
@@ -298,6 +340,17 @@ Shader "Custom/CoolToon"
             ZWrite On
             ZTest LEqual
             Cull [_Cull]
+            
+            Stencil
+            {
+                Ref [_StencilRef]
+                Comp [_StencilComp]
+                Pass [_StencilPass]
+                Fail [_StencilFail]
+                ZFail [_StencilZFail]
+                WriteMask [_StencilWriteMask]
+                ReadMask [_StencilReadMask]
+            }
             HLSLPROGRAM
             #pragma vertex ShadowPassVertex
             #pragma fragment ShadowPassFragment
@@ -379,6 +432,17 @@ Shader "Custom/CoolToon"
             ZWrite On
             ColorMask 0
             Cull [_Cull]
+            
+            Stencil
+            {
+                Ref [_StencilRef]
+                Comp [_StencilComp]
+                Pass [_StencilPass]
+                Fail [_StencilFail]
+                ZFail [_StencilZFail]
+                WriteMask [_StencilWriteMask]
+                ReadMask [_StencilReadMask]
+            }
             HLSLPROGRAM
             #pragma vertex DepthOnlyVertex
             #pragma fragment DepthOnlyFragment
