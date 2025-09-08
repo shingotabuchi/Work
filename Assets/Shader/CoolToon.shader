@@ -1,24 +1,41 @@
 Shader "Custom/CoolToon"
 {
+    // Refined CoolToon Shader with lilToon-inspired outline system
+    // Features: Distance-based outline scaling, vertex color modulation, 
+    //          texture masking, improved toon shading, organized properties
     Properties
     {
+        [Header(Base)]
         _BaseColor ("Base Color", Color) = (1,1,1,1)
         _BaseMap ("Base Map", 2D) = "white" {}
+        
+        [Header(Toon Shading)]
         _ShadowColor ("Shadow Color", Color) = (0.5,0.5,0.5,1)
         _ShadowThreshold ("Shadow Threshold", Range(0,1)) = 0.5
         _ShadowSmoothness ("Shadow Smoothness", Range(0,0.1)) = 0.01
         _ShadingStrength ("Shading Strength", Range(0,1)) = 1
+        
+        [Header(Rim Light)]
         _RimColor ("Rim Color", Color) = (1,1,1,1)
         _RimPower ("Rim Power", Range(0.1,16)) = 4
         _RimIntensity ("Rim Intensity", Range(0,2)) = 0.5
+        
+        [Header(Outline)]
         _OutlineColor ("Outline Color", Color) = (0,0,0,1)
-        _OutlineWidth ("Outline Width (screen)", Range(0,5)) = 1.2
+        _OutlineWidth ("Outline Width", Range(0,2)) = 0.1
+        [NoScaleOffset]_OutlineWidthMask ("Outline Width Mask", 2D) = "white" {}
+        [Toggle(_OUTLINE_WIDTH_MASK)] _UseOutlineWidthMask ("Use Width Mask", Float) = 0
+        _OutlineFixWidth ("Fix Width (Distance Scale)", Range(0,1)) = 0.8
+        [Enum(None,0,Red Channel,1,Alpha Channel,2)]_OutlineVertexR2Width ("Vertex Color Usage", Int) = 0
+        _OutlineZBias ("Z Bias", Range(-1,1)) = 0
+        
+        [Header(Other)]
         _Cutoff ("Alpha Cutoff", Range(0,1)) = 0.5
     }
 
     SubShader
     {
-        Tags{ "RenderType"="Opaque" "Queue"="Geometry" }
+        Tags{ "RenderType"="Opaque" "Queue"="Geometry-1" }
 
         HLSLINCLUDE
         #pragma target 3.0
@@ -37,15 +54,41 @@ Shader "Custom/CoolToon"
             float  _ShadowSmoothness;
             float  _ShadingStrength;
             float  _OutlineWidth;
+            float  _OutlineFixWidth;
+            float  _OutlineZBias;
+            int    _OutlineVertexR2Width;
             float  _Cutoff;
         CBUFFER_END
 
         TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);
+        TEXTURE2D(_OutlineWidthMask); SAMPLER(sampler_OutlineWidthMask);
+
+        // Helper functions for outline calculation (lilToon-inspired)
+        float GetOutlineWidth(float2 uv, float4 color, float outlineWidth)
+        {
+            outlineWidth *= 0.01; // Proper lilToon scaling
+            #ifdef _OUTLINE_WIDTH_MASK
+                outlineWidth *= SAMPLE_TEXTURE2D_LOD(_OutlineWidthMask, sampler_OutlineWidthMask, uv, 0).r;
+            #endif
+            // Vertex color modulation
+            if(_OutlineVertexR2Width == 1) outlineWidth *= color.r;
+            if(_OutlineVertexR2Width == 2) outlineWidth *= color.a;
+            return outlineWidth;
+        }
+
+        float GetDistanceScale(float3 positionWS)
+        {
+            // lilToon-style distance calculation for consistent outline thickness
+            float3 headDirection = _WorldSpaceCameraPos - positionWS;
+            float distance = length(headDirection);
+            return lerp(1.0, saturate(distance * 0.1), _OutlineFixWidth);
+        }
 
         struct Attributes {
             float4 positionOS : POSITION;
             float3 normalOS   : NORMAL;
             float2 uv         : TEXCOORD0;
+            float4 color      : COLOR;
         };
 
         struct Varyings {
@@ -72,38 +115,112 @@ Shader "Custom/CoolToon"
         float3 ShadeToon(float3 baseRGB, float3 N, float3 V, float3 positionWS)
         {
             float3 col = baseRGB;
+            N = normalize(N);
+            V = normalize(V);
 
             // Main light two-tone shading
             float4 shadowCoord = TransformWorldToShadowCoord(positionWS);
             Light mainLight = GetMainLight(shadowCoord);
-            float NdotL = saturate(dot(normalize(N), mainLight.direction));
+            float NdotL = saturate(dot(N, mainLight.direction));
             float litTerm = NdotL * mainLight.shadowAttenuation;
             
             // Two-tone threshold with smoothstep for anti-aliasing
-            float toonShade = smoothstep(_ShadowThreshold - _ShadowSmoothness, _ShadowThreshold + _ShadowSmoothness, litTerm);
-            float3 lightColor = lerp(_ShadowColor.rgb, baseRGB, toonShade);
+            float toonShade = smoothstep(_ShadowThreshold - _ShadowSmoothness, 
+                                       _ShadowThreshold + _ShadowSmoothness, litTerm);
+            
+            // Apply shadow color with proper energy conservation
+            float3 lightColor = lerp(_ShadowColor.rgb * baseRGB, baseRGB, toonShade);
             // Blend between flat lighting and two-tone shading based on shading strength
             lightColor = lerp(baseRGB, lightColor, _ShadingStrength);
             col = lightColor * mainLight.color;
 
             // Additional lights with two-tone shading
             uint count = GetAdditionalLightsCount();
-            [loop] for (uint i = 0; i < count; i++) {
-                Light l = GetAdditionalLight(i, positionWS);
-                float nl = saturate(dot(normalize(N), l.direction));
-                float additionalToon = smoothstep(_ShadowThreshold - _ShadowSmoothness, _ShadowThreshold + _ShadowSmoothness, nl);
-                float3 additionalLight = lerp(_ShadowColor.rgb, baseRGB, additionalToon);
+            LIGHT_LOOP_BEGIN(count)
+                Light l = GetAdditionalLight(lightIndex, positionWS);
+                float nl = saturate(dot(N, l.direction));
+                float additionalToon = smoothstep(_ShadowThreshold - _ShadowSmoothness, 
+                                                _ShadowThreshold + _ShadowSmoothness, nl);
+                float3 additionalLight = lerp(_ShadowColor.rgb * baseRGB, baseRGB, additionalToon);
                 // Blend between flat lighting and two-tone shading for additional lights
                 additionalLight = lerp(baseRGB, additionalLight, _ShadingStrength);
                 col += additionalLight * l.color * l.distanceAttenuation * l.shadowAttenuation;
-            }
+            LIGHT_LOOP_END
 
-            // Rim lighting
-            float rim = pow(saturate(1.0 - dot(normalize(N), normalize(V))), _RimPower) * _RimIntensity;
+            // Rim lighting (Fresnel-based)
+            float fresnel = 1.0 - saturate(dot(N, V));
+            float rim = pow(fresnel, _RimPower) * _RimIntensity;
             col += _RimColor.rgb * rim;
+            
             return col;
         }
         ENDHLSL
+
+        // ---------- Outline ----------
+        Pass
+        {
+            Name "Outline"
+            Tags{ "LightMode"="SRPDefaultUnlit" }
+            Cull Front
+            ZWrite On
+            ZTest LEqual
+
+            HLSLPROGRAM
+            #pragma vertex OutlineVert
+            #pragma fragment OutlineFrag
+            #pragma multi_compile _ _OUTLINE_WIDTH_MASK
+
+            struct OutlineAttributes { 
+                float4 positionOS : POSITION; 
+                float3 normalOS   : NORMAL; 
+                float2 uv         : TEXCOORD0;
+                float4 color      : COLOR;
+            };
+            struct OutlineVaryings { 
+                float4 positionCS : SV_POSITION;
+                float2 uv         : TEXCOORD0;
+            };
+
+            OutlineVaryings OutlineVert(OutlineAttributes IN)
+            {
+                OutlineVaryings OUT;
+                
+                // Transform to world space
+                float3 positionWS = TransformObjectToWorld(IN.positionOS.xyz);
+                float3 normalWS = TransformObjectToWorldNormal(IN.normalOS);
+                normalWS = normalize(normalWS);
+                
+                // Calculate outline width with all modulations
+                float width = GetOutlineWidth(IN.uv, IN.color, _OutlineWidth);
+                width *= GetDistanceScale(positionWS);
+                
+                // Apply outline expansion in world space
+                positionWS += normalWS * width;
+                
+                // Apply Z-bias if needed (for depth fighting prevention)
+                if(_OutlineZBias != 0)
+                {
+                    float3 viewDirWS = normalize(_WorldSpaceCameraPos - positionWS);
+                    positionWS -= viewDirWS * _OutlineZBias * 0.001;
+                }
+                
+                OUT.positionCS = TransformWorldToHClip(positionWS);
+                OUT.uv = IN.uv;
+                return OUT;
+            }
+
+            float4 OutlineFrag(OutlineVaryings IN) : SV_Target
+            {
+                float4 outlineColor = _OutlineColor;
+                #ifdef _OUTLINE_WIDTH_MASK
+                    // Optional: modulate outline color with width mask
+                    float mask = SAMPLE_TEXTURE2D(_OutlineWidthMask, sampler_OutlineWidthMask, IN.uv).r;
+                    outlineColor.rgb *= mask;
+                #endif
+                return outlineColor;
+            }
+            ENDHLSL
+        }
 
         // ---------- Forward Lit ----------
         Pass
@@ -128,11 +245,12 @@ Shader "Custom/CoolToon"
             float4 ToonFrag(Varyings IN) : SV_Target
             {
                 float4 baseSample = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv) * _BaseColor;
-                // if (baseSample.a < _Cutoff) discard;
+                // Optional alpha cutoff (uncomment if needed)
+                // clip(baseSample.a - _Cutoff);
 
                 float3 col = ShadeToon(baseSample.rgb, IN.normalWS, IN.viewDirWS, IN.positionWS);
-                col = MixFog(col, IN.positionCS.z);
-                return float4(col, 1);
+                col = MixFog(col, ComputeFogFactor(IN.positionCS.z));
+                return float4(col, baseSample.a);
             }
             ENDHLSL
         }
@@ -247,42 +365,6 @@ Shader "Custom/CoolToon"
             half4 DepthOnlyFragment(DepthOnlyVaryings input) : SV_TARGET
             {
                 return 0;
-            }
-            ENDHLSL
-        }
-
-        // ---------- Outline ----------
-        Pass
-        {
-            Name "Outline"
-            Tags{ "LightMode"="UniversalForward" }
-            Cull Front
-            ZWrite On
-
-            HLSLPROGRAM
-            #pragma vertex OutlineVert
-            #pragma fragment OutlineFrag
-
-            struct OutlineAttributes { float4 positionOS:POSITION; float3 normalOS:NORMAL; };
-            struct OutlineVaryings { float4 positionCS:SV_POSITION; };
-
-            OutlineVaryings OutlineVert(OutlineAttributes IN)
-            {
-                OutlineVaryings OUT;
-                float3 positionWS = TransformObjectToWorld(IN.positionOS.xyz);
-                float3 normalWS   = TransformObjectToWorldNormal(IN.normalOS);
-                float4 posVS = mul(UNITY_MATRIX_V, float4(positionWS, 1.0));
-                float3 nVS = normalize(mul((float3x3)UNITY_MATRIX_V, normalWS));
-
-                float width = _OutlineWidth * 0.001;
-                posVS.xyz += nVS * width * -posVS.z;
-                OUT.positionCS = mul(UNITY_MATRIX_P, posVS);
-                return OUT;
-            }
-
-            float4 OutlineFrag() : SV_Target
-            {
-                return _OutlineColor;
             }
             ENDHLSL
         }
