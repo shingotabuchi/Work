@@ -648,9 +648,9 @@ Material:
     - _SrcBlendFA: 1
     - _StencilComp: 8
     - _StencilFail: 0
-    - _StencilPass: 2
+    - _StencilPass: 0
     - _StencilReadMask: 255
-    - _StencilRef: 1
+    - _StencilRef: 0
     - _StencilWriteMask: 255
     - _StencilZFail: 0
     - _SubpassCutoff: 0.5
@@ -706,7 +706,7 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZClip: 1
     - _ZTest: 4
-    - _ZWrite: 1
+    - _ZWrite: 0
     - _e2gai: 2
     - _e2gci: 2
     - _egai: 2

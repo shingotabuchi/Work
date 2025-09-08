@@ -25,6 +25,7 @@ Shader "Custom/CoolToon"
         _RimIntensity ("Rim Intensity", Range(0,2)) = 0.5
         
         [Header(Outline)]
+        [Toggle(_OUTLINE)] _UseOutline ("Enable Outline", Float) = 1
         _OutlineColor ("Outline Color", Color) = (0,0,0,1)
         _OutlineWidth ("Outline Width", Range(0,2)) = 0.1
         [NoScaleOffset]_OutlineWidthMask ("Outline Width Mask", 2D) = "white" {}
@@ -198,20 +199,21 @@ Shader "Custom/CoolToon"
             ZTest LEqual
             Blend [_SrcBlend] [_DstBlend]
             
-            Stencil
-            {
-                Ref [_StencilRef]
-                Comp [_StencilComp]
-                Pass [_StencilPass]
-                Fail [_StencilFail]
-                ZFail [_StencilZFail]
-                WriteMask [_StencilWriteMask]
-                ReadMask [_StencilReadMask]
-            }
+            // Stencil
+            // {
+            //     Ref [_StencilRef]
+            //     Comp [_StencilComp]
+            //     Pass [_StencilPass]
+            //     Fail [_StencilFail]
+            //     ZFail [_StencilZFail]
+            //     WriteMask [_StencilWriteMask]
+            //     ReadMask [_StencilReadMask]
+            // }
 
             HLSLPROGRAM
             #pragma vertex OutlineVert
             #pragma fragment OutlineFrag
+            #pragma multi_compile _ _OUTLINE
             #pragma multi_compile _ _OUTLINE_WIDTH_MASK
             #pragma shader_feature_local _ALPHATEST_ON
 
@@ -229,6 +231,13 @@ Shader "Custom/CoolToon"
             OutlineVaryings OutlineVert(OutlineAttributes IN)
             {
                 OutlineVaryings OUT;
+                
+                #ifndef _OUTLINE
+                    // If outline is disabled, return an invalid position to cull the vertex
+                    OUT.positionCS = float4(0, 0, 0, 0);
+                    OUT.uv = IN.uv;
+                    return OUT;
+                #endif
                 
                 // Transform to world space
                 float3 positionWS = TransformObjectToWorld(IN.positionOS.xyz);
@@ -256,13 +265,19 @@ Shader "Custom/CoolToon"
 
             float4 OutlineFrag(OutlineVaryings IN) : SV_Target
             {
+                #ifndef _OUTLINE
+                    // If outline is disabled, discard the fragment
+                    discard;
+                #endif
+                
                 float4 outlineColor = _OutlineColor;
                 
                 // Sample base texture for alpha in transparency modes
                 float alpha = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv).a * _BaseColor.a;
                 
-                // Always test alpha for stencil operations
-                clip(alpha - _Cutoff);
+                // #ifdef _ALPHATEST_ON
+                //     clip(alpha - _Cutoff);
+                // #endif
                 
                 #ifdef _OUTLINE_WIDTH_MASK
                     // Optional: modulate outline color with width mask
@@ -313,8 +328,10 @@ Shader "Custom/CoolToon"
             {
                 float4 baseSample = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv) * _BaseColor;
                 
-                // Always test alpha for stencil operations
-                clip(baseSample.a - _Cutoff);
+                // // Alpha cutoff for cutout mode
+                // #ifdef _ALPHATEST_ON
+                //     clip(baseSample.a - _Cutoff);
+                // #endif
 
                 float3 col = ShadeToon(baseSample.rgb, IN.normalWS, IN.viewDirWS, IN.positionWS);
                 col = MixFog(col, ComputeFogFactor(IN.positionCS.z));
@@ -412,9 +429,10 @@ Shader "Custom/CoolToon"
 
             half4 ShadowPassFragment(ShadowVaryings input) : SV_TARGET
             {
-                // Always test alpha for stencil operations
-                float alpha = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv).a * _BaseColor.a;
-                clip(alpha - _Cutoff);
+                // #ifdef _ALPHATEST_ON
+                //     float alpha = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv).a * _BaseColor.a;
+                //     clip(alpha - _Cutoff);
+                // #endif
                 return 0;
             }
             ENDHLSL
@@ -465,9 +483,9 @@ Shader "Custom/CoolToon"
 
             half4 DepthOnlyFragment(DepthOnlyVaryings input) : SV_TARGET
             {
-                // Always test alpha for stencil operations
-                float alpha = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv).a * _BaseColor.a;
-                clip(alpha - _Cutoff);
+                // // Always test alpha for stencil operations
+                // float alpha = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv).a * _BaseColor.a;
+                // clip(alpha - _Cutoff);
                 return 0;
             }
             ENDHLSL

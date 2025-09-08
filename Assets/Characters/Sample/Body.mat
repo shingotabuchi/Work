@@ -24,12 +24,13 @@ Material:
   m_Shader: {fileID: 4800000, guid: aae6d89bf797b664b9482d7b7f047ffa, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _OUTLINE
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3001
+  m_CustomRenderQueue: 3010
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
@@ -57,21 +58,23 @@ Material:
     - _OutlineVertexR2Width: 0
     - _OutlineWidth: 2
     - _OutlineZBias: 0
-    - _RenderQueue: 3001
+    - _RenderQueue: 3010
     - _RimIntensity: 0.2
     - _RimPower: 2
     - _ShadingStrength: 0.1
     - _ShadowSmoothness: 0.08
     - _ShadowThreshold: 0.05
     - _SrcBlend: 1
+    - _StencilClearShellWidth: 1
     - _StencilComp: 6
-    - _StencilFail: 0
+    - _StencilFail: 1
     - _StencilPass: 0
     - _StencilReadMask: 255
     - _StencilRef: 1
     - _StencilWriteMask: 255
     - _StencilZFail: 0
     - _Surface: 0
+    - _UseOutline: 1
     - _UseOutlineWidthMask: 0
     - _ZWrite: 1
     m_Colors:
