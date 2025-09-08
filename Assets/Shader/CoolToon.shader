@@ -4,8 +4,10 @@ Shader "Custom/CoolToon"
     {
         _BaseColor ("Base Color", Color) = (1,1,1,1)
         _BaseMap ("Base Map", 2D) = "white" {}
-        _RampTex ("1D Ramp (horizontal)", 2D) = "white" {}
-        _ShadowStrength ("Shadow Strength", Range(0,1)) = 1
+        _ShadowColor ("Shadow Color", Color) = (0.5,0.5,0.5,1)
+        _ShadowThreshold ("Shadow Threshold", Range(0,1)) = 0.5
+        _ShadowSmoothness ("Shadow Smoothness", Range(0,0.1)) = 0.01
+        _ShadingStrength ("Shading Strength", Range(0,1)) = 1
         _RimColor ("Rim Color", Color) = (1,1,1,1)
         _RimPower ("Rim Power", Range(0.1,16)) = 4
         _RimIntensity ("Rim Intensity", Range(0,2)) = 0.5
@@ -26,17 +28,19 @@ Shader "Custom/CoolToon"
 
         CBUFFER_START(UnityPerMaterial)
             float4 _BaseColor;
+            float4 _ShadowColor;
             float4 _RimColor;
             float4 _OutlineColor;
             float  _RimPower;
             float  _RimIntensity;
-            float  _ShadowStrength;
+            float  _ShadowThreshold;
+            float  _ShadowSmoothness;
+            float  _ShadingStrength;
             float  _OutlineWidth;
             float  _Cutoff;
         CBUFFER_END
 
         TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);
-        TEXTURE2D(_RampTex); SAMPLER(sampler_RampTex);
 
         struct Attributes {
             float4 positionOS : POSITION;
@@ -65,25 +69,36 @@ Shader "Custom/CoolToon"
             return OUT;
         }
 
-        float3 ShadeToon(float3 baseRGB, float3 N, float3 V, float3 positionWS, float shadowStrength)
+        float3 ShadeToon(float3 baseRGB, float3 N, float3 V, float3 positionWS)
         {
             float3 col = baseRGB;
 
+            // Main light two-tone shading
             float4 shadowCoord = TransformWorldToShadowCoord(positionWS);
             Light mainLight = GetMainLight(shadowCoord);
             float NdotL = saturate(dot(normalize(N), mainLight.direction));
-            float litTerm = lerp(NdotL, NdotL * mainLight.shadowAttenuation, shadowStrength);
-            float3 ramp = SAMPLE_TEXTURE2D(_RampTex, sampler_RampTex, float2(saturate(litTerm), 0.5)).rgb;
-            col = baseRGB * ramp * mainLight.color;
+            float litTerm = NdotL * mainLight.shadowAttenuation;
+            
+            // Two-tone threshold with smoothstep for anti-aliasing
+            float toonShade = smoothstep(_ShadowThreshold - _ShadowSmoothness, _ShadowThreshold + _ShadowSmoothness, litTerm);
+            float3 lightColor = lerp(_ShadowColor.rgb, baseRGB, toonShade);
+            // Blend between flat lighting and two-tone shading based on shading strength
+            lightColor = lerp(baseRGB, lightColor, _ShadingStrength);
+            col = lightColor * mainLight.color;
 
+            // Additional lights with two-tone shading
             uint count = GetAdditionalLightsCount();
             [loop] for (uint i = 0; i < count; i++) {
                 Light l = GetAdditionalLight(i, positionWS);
                 float nl = saturate(dot(normalize(N), l.direction));
-                float3 rr = SAMPLE_TEXTURE2D(_RampTex, sampler_RampTex, float2(nl, 0.5)).rgb;
-                col += baseRGB * rr * l.color * l.distanceAttenuation * l.shadowAttenuation;
+                float additionalToon = smoothstep(_ShadowThreshold - _ShadowSmoothness, _ShadowThreshold + _ShadowSmoothness, nl);
+                float3 additionalLight = lerp(_ShadowColor.rgb, baseRGB, additionalToon);
+                // Blend between flat lighting and two-tone shading for additional lights
+                additionalLight = lerp(baseRGB, additionalLight, _ShadingStrength);
+                col += additionalLight * l.color * l.distanceAttenuation * l.shadowAttenuation;
             }
 
+            // Rim lighting
             float rim = pow(saturate(1.0 - dot(normalize(N), normalize(V))), _RimPower) * _RimIntensity;
             col += _RimColor.rgb * rim;
             return col;
@@ -115,7 +130,7 @@ Shader "Custom/CoolToon"
                 float4 baseSample = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv) * _BaseColor;
                 // if (baseSample.a < _Cutoff) discard;
 
-                float3 col = ShadeToon(baseSample.rgb, IN.normalWS, IN.viewDirWS, IN.positionWS, _ShadowStrength);
+                float3 col = ShadeToon(baseSample.rgb, IN.normalWS, IN.viewDirWS, IN.positionWS);
                 col = MixFog(col, IN.positionCS.z);
                 return float4(col, 1);
             }
