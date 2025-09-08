@@ -973,6 +973,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blob
       objectReference: {fileID: 0}
+    - target: {fileID: 5182756267195731250, guid: 86fa1649317286547926decc87c5a5a3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1e9b4a05bd860cb45b04f56b47b59b91, type: 2}
     - target: {fileID: 5574568401632533698, guid: 86fa1649317286547926decc87c5a5a3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
