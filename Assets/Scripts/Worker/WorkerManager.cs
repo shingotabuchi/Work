@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Fwk;
 
 public class WorkerManager : SingletonGeneric<WorkerManager>
