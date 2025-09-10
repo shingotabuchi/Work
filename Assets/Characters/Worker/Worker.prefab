@@ -280,7 +280,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 3.056062, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1566812368080601437}
@@ -1373,6 +1373,7 @@ GameObject:
   - component: {fileID: 1566812368080601437}
   - component: {fileID: 5381511348061662908}
   - component: {fileID: 7276916854675197110}
+  - component: {fileID: 6950626314231376888}
   m_Layer: 8
   m_Name: Worker
   m_TagString: Player
@@ -1390,7 +1391,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1231766731714168513}
@@ -1431,6 +1432,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c465a518ca2a32840b51f68956d781eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorkerComponent
+  _useWasdInputs: 1
+  _useDebugModel: 1
+  _debugModel:
+    _moveSpeed: 2
+    _sprintSpeed: 5.335
+    _speedChangeRate: 10
+    _rotationSmoothTime: 0.12
+--- !u!143 &6950626314231376888
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7624829919324630657}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1.8
+  m_Radius: 0.4
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &7745291126955844644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,8 +1522,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 178.58365, y: 178.58363, z: 178.58363}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 71.43344, y: 71.43344, z: 71.43344}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3361982395985086195}
   m_Father: {fileID: 1566812368080601437}

@@ -1,3 +1,3 @@
-// public class WorkerModel : IReadOnlyWorkerModel
+// public class WorkerModel : IWorkerModel
 // {
 // }

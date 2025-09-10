@@ -87,9 +87,15 @@ namespace Fwk
             {
                 return;
             }
+
             var mainCameraObject = GameObject.FindWithTag("MainCamera");
             if (mainCameraObject != null)
             {
+                if (mainCameraObject.TryGetComponent<AudioListener>(out var listener))
+                {
+                    Destroy(listener);
+                }
+
                 MainCamera = mainCameraObject.GetComponent<Camera>();
                 MainCamera.transform.SetParent(transform, false);
             }
@@ -104,6 +110,11 @@ namespace Fwk
             var uiCameraObject = GameObject.FindWithTag("UICamera");
             if (uiCameraObject != null)
             {
+                if (uiCameraObject.TryGetComponent<AudioListener>(out var listener))
+                {
+                    Destroy(listener);
+                }
+
                 UICamera = uiCameraObject.GetComponent<Camera>();
                 UICamera.transform.SetParent(transform, false);
             }
@@ -118,6 +129,11 @@ namespace Fwk
             var fxCameraObject = GameObject.FindWithTag("FXCamera");
             if (fxCameraObject != null)
             {
+                if (fxCameraObject.TryGetComponent<AudioListener>(out var listener))
+                {
+                    Destroy(listener);
+                }
+
                 FXCamera = fxCameraObject.GetComponent<Camera>();
                 FXCamera.transform.SetParent(transform, false);
             }
