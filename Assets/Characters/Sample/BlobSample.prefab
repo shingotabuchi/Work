@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 169692248144697209}
   - component: {fileID: 6819375021292636544}
   m_Layer: 8
-  m_Name: Blob
+  m_Name: BlobSample
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

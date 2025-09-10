@@ -772,7 +772,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 126848140406026411, guid: 86fa1649317286547926decc87c5a5a3, type: 3}
       propertyPath: m_Name
-      value: Blob
+      value: BlobSample
       objectReference: {fileID: 0}
     - target: {fileID: 5574568401632533698, guid: 86fa1649317286547926decc87c5a5a3, type: 3}
       propertyPath: m_LocalPosition.x
