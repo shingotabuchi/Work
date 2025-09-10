@@ -12,4 +12,8 @@ public class WorkerAnimationView
         _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
         _animator = animator;
     }
+
+    public void Update(IWorkerAnimationController controller)
+    {
+    }
 }
