@@ -199,16 +199,16 @@ Shader "Custom/CoolToon"
             ZTest LEqual
             Blend [_SrcBlend] [_DstBlend]
             
-            // Stencil
-            // {
-            //     Ref [_StencilRef]
-            //     Comp [_StencilComp]
-            //     Pass [_StencilPass]
-            //     Fail [_StencilFail]
-            //     ZFail [_StencilZFail]
-            //     WriteMask [_StencilWriteMask]
-            //     ReadMask [_StencilReadMask]
-            // }
+            Stencil
+            {
+                Ref [_StencilRef]
+                Comp [_StencilComp]
+                Pass [_StencilPass]
+                Fail [_StencilFail]
+                ZFail [_StencilZFail]
+                WriteMask [_StencilWriteMask]
+                ReadMask [_StencilReadMask]
+            }
 
             HLSLPROGRAM
             #pragma vertex OutlineVert
