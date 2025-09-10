@@ -324,7 +324,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f4bd6c10f698a7246a560c165901df4b, type: 2}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -878,6 +878,10 @@ PrefabInstance:
       propertyPath: 'FootstepAudioClips.Array.data[9]'
       value: 
       objectReference: {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
+    - target: {fileID: 7303428996913207101, guid: 86fa1649317286547926decc87c5a5a3, type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     - target: {fileID: 7303428996913207101, guid: 86fa1649317286547926decc87c5a5a3, type: 3}
       propertyPath: m_Enabled
       value: 1
