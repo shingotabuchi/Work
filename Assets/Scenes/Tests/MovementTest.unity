@@ -431,10 +431,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5381511348061662908, guid: e258221d202124d29a427c045d308c6e, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 09393c58da61f534c8c885ed0001a0be, type: 2}
     - target: {fileID: 7624829919324630657, guid: e258221d202124d29a427c045d308c6e, type: 3}
       propertyPath: m_Name
       value: Worker
