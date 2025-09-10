@@ -814,13 +814,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6763023514487656838, guid: 86fa1649317286547926decc87c5a5a3, type: 3}
+      propertyPath: pushLayers.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819375021292636544, guid: 86fa1649317286547926decc87c5a5a3, type: 3}
+      propertyPath: JumpTimeout
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6819375021292636544, guid: 86fa1649317286547926decc87c5a5a3, type: 3}
       propertyPath: LandingAudioClip
       value: 
       objectReference: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
     - target: {fileID: 6819375021292636544, guid: 86fa1649317286547926decc87c5a5a3, type: 3}
+      propertyPath: FootstepAudioVolume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819375021292636544, guid: 86fa1649317286547926decc87c5a5a3, type: 3}
       propertyPath: GroundLayers.m_Bits
-      value: 4294967295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6819375021292636544, guid: 86fa1649317286547926decc87c5a5a3, type: 3}
       propertyPath: FootstepAudioClips.Array.size
@@ -866,6 +878,10 @@ PrefabInstance:
       propertyPath: 'FootstepAudioClips.Array.data[9]'
       value: 
       objectReference: {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
+    - target: {fileID: 7303428996913207101, guid: 86fa1649317286547926decc87c5a5a3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7303428996913207101, guid: 86fa1649317286547926decc87c5a5a3, type: 3}
       propertyPath: m_UIInputModule
       value: 
