@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5bc62296cc4464438a0c2cbf8355b69d
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Demos/Demo_11_Selection/ViewPrefab.prefab
+  uploadId: 655422

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: ccc7cfc87a3e245a0b0ec17d5fb5eec5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Demos/Demo_06_Multiple_Cell_Types/Model_Base.cs
+  uploadId: 655422

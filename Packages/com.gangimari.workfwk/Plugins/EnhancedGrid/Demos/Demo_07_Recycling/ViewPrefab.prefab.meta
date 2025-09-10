@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 38797ba381ecf40369b8a555cd05abf0
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Demos/Demo_07_Recycling/ViewPrefab.prefab
+  uploadId: 655422

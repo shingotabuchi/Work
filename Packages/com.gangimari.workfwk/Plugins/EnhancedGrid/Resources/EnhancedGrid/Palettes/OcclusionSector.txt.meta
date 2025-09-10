@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4e53816c2a3c3420894463dd3ff0ff5a
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Resources/EnhancedGrid/Palettes/OcclusionSector.txt
+  uploadId: 655422

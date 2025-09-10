@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: dfae91037b92444aba70542b4cad1923
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Demos/Demo_05_Jumping/View.cs
+  uploadId: 655422

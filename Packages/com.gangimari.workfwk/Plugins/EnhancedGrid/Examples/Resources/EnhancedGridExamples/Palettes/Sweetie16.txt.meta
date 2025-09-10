@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e71e4ff6ac0234062a6a3b4b86ba023d
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Examples/Resources/EnhancedGridExamples/Palettes/Sweetie16.txt
+  uploadId: 655422

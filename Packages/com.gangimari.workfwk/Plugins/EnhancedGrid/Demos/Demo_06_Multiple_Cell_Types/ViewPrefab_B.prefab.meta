@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4357468863ea94e0997ca6e90415bb94
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Demos/Demo_06_Multiple_Cell_Types/ViewPrefab_B.prefab
+  uploadId: 655422

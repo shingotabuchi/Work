@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a123c2478bf24487796c4b9812a84145
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Examples/Example_06_Inventory/InventoryData.txt
+  uploadId: 655422

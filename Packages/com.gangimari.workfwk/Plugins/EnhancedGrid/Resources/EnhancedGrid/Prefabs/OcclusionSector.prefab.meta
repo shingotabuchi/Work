@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 506918edc5e22447b86a163a2a92db6f
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Resources/EnhancedGrid/Prefabs/OcclusionSector.prefab
+  uploadId: 655422

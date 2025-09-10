@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c1173479692b44a2ab893550b06e901c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Examples/Example_06_Inventory/BagItemView.cs
+  uploadId: 655422

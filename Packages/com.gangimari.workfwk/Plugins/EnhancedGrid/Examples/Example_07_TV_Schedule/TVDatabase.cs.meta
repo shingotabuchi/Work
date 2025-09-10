@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 74213498ef10d4812b3e9fa1d131773c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Examples/Example_07_TV_Schedule/TVDatabase.cs
+  uploadId: 655422

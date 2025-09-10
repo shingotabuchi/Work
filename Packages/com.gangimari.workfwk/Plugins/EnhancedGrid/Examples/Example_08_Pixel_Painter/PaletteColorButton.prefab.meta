@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 70432e604f9244a33ba2bf79466fa69d
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Examples/Example_08_Pixel_Painter/PaletteColorButton.prefab
+  uploadId: 655422

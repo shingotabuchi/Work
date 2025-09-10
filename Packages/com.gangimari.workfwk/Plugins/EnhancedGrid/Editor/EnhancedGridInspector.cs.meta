@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 742b8330e43984d59af76b4db3b49b92
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Editor/EnhancedGridInspector.cs
+  uploadId: 655422

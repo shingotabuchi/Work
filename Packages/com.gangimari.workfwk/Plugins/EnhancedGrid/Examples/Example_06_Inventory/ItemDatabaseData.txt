@@ -1,0 +1,298 @@
+﻿{
+    "items": [
+        {
+            "itemId": 1,
+            "name": "Blackberries",
+            "description": "A succulent blackberry infused with dark magic.",
+            "value": 4.0,
+            "image": "fruit_veggies_00001"
+        },
+        {
+            "itemId": 2,
+            "name": "Basil",
+            "description": "Fragrant basil leaves, perfect for enhancing your culinary creations.",
+            "value": 4.0,
+            "image": "fruit_veggies_00002"
+        },
+        {
+            "itemId": 3,
+            "name": "Turnip",
+            "description": "A freshly harvested, crisp turnip ready for cooking or munching.",
+            "value": 4.0,
+            "image": "fruit_veggies_00003"
+        },
+        {
+            "itemId": 4,
+            "name": "Squash",
+            "description": "A vibrant, golden-hued squash, bursting with flavor and culinary potential.",
+            "value": 4.0,
+            "image": "fruit_veggies_00004"
+        },
+        {
+            "itemId": 5,
+            "name": "Green Pepper",
+            "description": "Crunchy and fresh, a key ingredient for savory dishes.",
+            "value": 4.0,
+            "image": "fruit_veggies_00005"
+        },
+        {
+            "itemId": 6,
+            "name": "Cabbage",
+            "description": "A versatile vegetable, perfect for salads or coleslaw.",
+            "value": 4.0,
+            "image": "fruit_veggies_00006"
+        },
+        {
+            "itemId": 7,
+            "name": "Red Apple",
+            "description": "A sweet and juicy red apple, a healthy snack choice.",
+            "value": 4.0,
+            "image": "fruit_veggies_00007"
+        },
+        {
+            "itemId": 8,
+            "name": "Orange",
+            "description": "A refreshing and tangy orange, packed with vitamin C.",
+            "value": 4.0,
+            "image": "fruit_veggies_00008"
+        },
+        {
+            "itemId": 9,
+            "name": "Yellow Pepper",
+            "description": "Bright and flavorful, perfect for adding color to your meals.",
+            "value": 4.0,
+            "image": "fruit_veggies_00009"
+        },
+        {
+            "itemId": 10,
+            "name": "Spinach",
+            "description": "Nutrient-rich spinach, a great addition to your salads and smoothies.",
+            "value": 4.0,
+            "image": "fruit_veggies_00010"
+        },
+        {
+            "itemId": 11,
+            "name": "Brussel Sprout",
+            "description": "Small but packed with flavor, ideal for roasting or sautéing.",
+            "value": 4.0,
+            "image": "fruit_veggies_00011"
+        },
+        {
+            "itemId": 12,
+            "name": "Pear",
+            "description": "A sweet and juicy pear, a delightful snack or dessert option.",
+            "value": 4.0,
+            "image": "fruit_veggies_00012"
+        },
+        {
+            "itemId": 13,
+            "name": "Herbs",
+            "description": "A mix of aromatic herbs to enhance the flavor of your dishes.",
+            "value": 4.0,
+            "image": "fruit_veggies_00013"
+        },
+        {
+            "itemId": 14,
+            "name": "Beans",
+            "description": "A versatile source of protein and fiber for your meals.",
+            "value": 4.0,
+            "image": "fruit_veggies_00014"
+        },
+        {
+            "itemId": 15,
+            "name": "Green Apple",
+            "description": "A crisp and refreshing green apple, a classic favorite.",
+            "value": 4.0,
+            "image": "fruit_veggies_00015"
+        },
+        {
+            "itemId": 16,
+            "name": "Broccoli",
+            "description": "Nutrient-packed broccoli, perfect for steaming or stir-frying.",
+            "value": 4.0,
+            "image": "fruit_veggies_00016"
+        },
+        {
+            "itemId": 17,
+            "name": "Lettuce",
+            "description": "Fresh and crisp lettuce, a staple for salads and sandwiches.",
+            "value": 4.0,
+            "image": "fruit_veggies_00017"
+        },
+        {
+            "itemId": 18,
+            "name": "Blueberries",
+            "description": "Juicy and antioxidant-rich blueberries, perfect for snacking or baking.",
+            "value": 4.0,
+            "image": "fruit_veggies_00018"
+        },
+        {
+            "itemId": 19,
+            "name": "Red Pepper",
+            "description": "Vibrant and sweet red pepper, a versatile ingredient for various dishes.",
+            "value": 4.0,
+            "image": "fruit_veggies_00019"
+        },
+        {
+            "itemId": 20,
+            "name": "Carrot",
+            "description": "Crunchy and nutritious carrots, great for snacking or as a side dish.",
+            "value": 4.0,
+            "image": "fruit_veggies_00020"
+        },
+        {
+            "itemId": 21,
+            "name": "Pumpkin",
+            "description": "A hearty pumpkin, perfect for roasting, soups, or pies.",
+            "value": 4.0,
+            "image": "fruit_veggies_00021"
+        },
+        {
+            "itemId": 22,
+            "name": "Walnut",
+            "description": "Nutrient-rich walnuts, a tasty and healthy snack option.",
+            "value": 4.0,
+            "image": "fruit_veggies_00022"
+        },
+        {
+            "itemId": 23,
+            "name": "Cucumber",
+            "description": "A cool and refreshing cucumber, perfect for salads or pickling.",
+            "value": 4.0,
+            "image": "fruit_veggies_00023"
+        },
+        {
+            "itemId": 24,
+            "name": "Nuts",
+            "description": "Nutrient-rich nuts, a tasty and healthy snack option.",
+            "value": 4.0,
+            "image": "fruit_veggies_00024"
+        },
+        {
+            "itemId": 25,
+            "name": "Zucchini",
+            "description": "Fresh zucchini, ideal for grilling, roasting, or sautéing.",
+            "value": 4.0,
+            "image": "fruit_veggies_00025"
+        },
+        {
+            "itemId": 26,
+            "name": "Grapes",
+            "description": "Juicy grapes, a sweet and refreshing treat for snacking.",
+            "value": 4.0,
+            "image": "fruit_veggies_00026"
+        },
+        {
+            "itemId": 27,
+            "name": "Tomatoes",
+            "description": "Vibrant tomatoes, a versatile ingredient for various dishes.",
+            "value": 4.0,
+            "image": "fruit_veggies_00027"
+        },
+        {
+            "itemId": 28,
+            "name": "Book",
+            "description": "An informative book, a source of knowledge and adventure.",
+            "value": 4.0,
+            "image": "misc_items_00001"
+        },
+        {
+            "itemId": 29,
+            "name": "Journal",
+            "description": "A journal for recording your thoughts, memories, and discoveries.",
+            "value": 4.0,
+            "image": "misc_items_00002"
+        },
+        {
+            "itemId": 30,
+            "name": "Maple Leaf",
+            "description": "A beautiful maple leaf, a symbol of autumn's beauty.",
+            "value": 4.0,
+            "image": "misc_items_00003"
+        },
+        {
+            "itemId": 31,
+            "name": "Dandelion",
+            "description": "A delicate dandelion, its seeds carry wishes on the wind.",
+            "value": 4.0,
+            "image": "misc_items_00004"
+        },
+        {
+            "itemId": 32,
+            "name": "Backpack",
+            "description": "A sturdy backpack, essential for carrying your belongings on adventures.",
+            "value": 4.0,
+            "image": "misc_items_00005"
+        },
+        {
+            "itemId": 33,
+            "name": "Coin Purse",
+            "description": "A pouch filled with shiny coins, your ticket to trade and commerce.",
+            "value": 4.0,
+            "image": "misc_items_00006"
+        },
+        {
+            "itemId": 34,
+            "name": "Bottle",
+            "description": "A glass bottle, versatile for storing potions or capturing fireflies.",
+            "value": 4.0,
+            "image": "misc_items_00007"
+        },
+        {
+            "itemId": 35,
+            "name": "Jewelry Box",
+            "description": "An ornate box filled with dazzling gems and precious trinkets.",
+            "value": 4.0,
+            "image": "misc_items_00008"
+        },
+        {
+            "itemId": 36,
+            "name": "Steel Dagger",
+            "description": "A finely crafted steel dagger, sharp and deadly in the right hands.",
+            "value": 4.0,
+            "image": "weapons_00001"
+        },
+        {
+            "itemId": 37,
+            "name": "Magic Wand",
+            "description": "A mystical wand with the power to cast spells and enchantments.",
+            "value": 4.0,
+            "image": "weapons_00002"
+        },
+        {
+            "itemId": 38,
+            "name": "Fire Dagger",
+            "description": "A dagger imbued with flames, capable of scorching your foes.",
+            "value": 4.0,
+            "image": "weapons_00003"
+        },
+        {
+            "itemId": 39,
+            "name": "Staff",
+            "description": "A versatile staff, ideal for both offense and defense in battles.",
+            "value": 4.0,
+            "image": "weapons_00004"
+        },
+        {
+            "itemId": 40,
+            "name": "Sword",
+            "description": "A classic sword, a symbol of honor and a formidable weapon.",
+            "value": 4.0,
+            "image": "weapons_00005"
+        },
+        {
+            "itemId": 41,
+            "name": "Magic Staff",
+            "description": "An enchanted staff, harnessing the forces of magic for your use.",
+            "value": 4.0,
+            "image": "weapons_00006"
+        },
+        {
+            "itemId": 42,
+            "name": "Ice Dagger",
+            "description": "A dagger with a frosty edge, freezing your enemies in their tracks.",
+            "value": 4.0,
+            "image": "weapons_00007"
+        }
+    ]
+}

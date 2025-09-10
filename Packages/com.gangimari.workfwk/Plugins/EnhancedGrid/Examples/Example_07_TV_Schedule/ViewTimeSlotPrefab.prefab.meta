@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ab4ed8a86911c47a0ad94457bfd405ae
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Examples/Example_07_TV_Schedule/ViewTimeSlotPrefab.prefab
+  uploadId: 655422

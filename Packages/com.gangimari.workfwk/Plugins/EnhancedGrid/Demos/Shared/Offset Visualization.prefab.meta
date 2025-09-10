@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5aa1057bb7e914ab483660fae64d2c9b
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Demos/Shared/Offset Visualization.prefab
+  uploadId: 655422

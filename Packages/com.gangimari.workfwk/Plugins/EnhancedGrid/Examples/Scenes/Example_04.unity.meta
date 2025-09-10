@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: abd61473147614f1999a3b515fdd96ca
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Examples/Scenes/Example_04.unity
+  uploadId: 655422

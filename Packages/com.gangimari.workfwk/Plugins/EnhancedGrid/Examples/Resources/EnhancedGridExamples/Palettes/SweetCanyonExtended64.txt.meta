@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 45ecb04e01acf47ff822e8098e9f35fd
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Examples/Resources/EnhancedGridExamples/Palettes/SweetCanyonExtended64.txt
+  uploadId: 655422

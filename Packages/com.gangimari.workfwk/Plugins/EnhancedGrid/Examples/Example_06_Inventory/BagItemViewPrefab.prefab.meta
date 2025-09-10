@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d3fd4da01caa14faa96e1bf629d17fd9
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Examples/Example_06_Inventory/BagItemViewPrefab.prefab
+  uploadId: 655422

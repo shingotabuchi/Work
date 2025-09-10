@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c595c13610fb848babe8d5c08c2c0359
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Plugins/EnhancedGrid/FlowTopToBottomLeftToRight.cs
+  uploadId: 655422

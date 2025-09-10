@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a3a8bab0e2db04ca7bdad2c3fcbe6cd8
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266599
+  packageName: EnhancedGrid
+  packageVersion: 1.1.3
+  assetPath: Assets/echo17/EnhancedGrid/Examples/Example_07_TV_Schedule/ViewProgramPrefab.prefab
+  uploadId: 655422

@@ -1,0 +1,604 @@
+﻿{
+    "channels": [
+        {
+            "channel_id": 2,
+            "name": "News 7",
+            "sort_order": 1
+        },
+        {
+            "channel_id": 3,
+            "name": "SilverScreen Showcase",
+            "sort_order": 2
+        },
+        {
+            "channel_id": 1,
+            "name": "MyTV",
+            "sort_order": 2
+        },
+        {
+            "channel_id": 4,
+            "name": "HomeHub Central",
+            "sort_order": 3
+        },
+        {
+            "channel_id": 5,
+            "name": "Sports 1",
+            "sort_order": 3
+        },
+        {
+            "channel_id": 6,
+            "name": "Sports 2",
+            "sort_order": 3
+        },
+        {
+            "channel_id": 7,
+            "name": "Sports 3",
+            "sort_order": 3
+        },
+        {
+            "channel_id": 8,
+            "name": "ChatterBox Kids",
+            "sort_order": 3
+        },
+        {
+            "channel_id": 9,
+            "name": "Shop Smart Showcase",
+            "sort_order": 3
+        },
+        {
+            "channel_id": 10,
+            "name": "MusiMix Network",
+            "sort_order": 3
+        },
+        {
+            "channel_id": 11,
+            "name": "Local 11",
+            "sort_order": 1
+        },
+        {
+            "channel_id": 12,
+            "name": "Eclectic Encore",
+            "sort_order": 99
+        },
+        {
+            "channel_id": 13,
+            "name": "Diamond Screen",
+            "sort_order": 99
+        },
+        {
+            "channel_id": 14,
+            "name": "Fiesta",
+            "sort_order": 98
+        }
+    ],
+    "programs": [
+        {
+            "channel_id": 11,
+            "start_time": "2023-11-01 06:00",
+            "end_time": "2023-11-01 06:30",
+            "title": "Local News"
+        },
+        {
+            "channel_id": 11,
+            "start_time": "2023-11-01 06:30",
+            "end_time": "2023-11-01 07:00",
+            "title": "World News"
+        },
+        {
+            "channel_id": 11,
+            "start_time": "2023-11-01 07:00",
+            "end_time": "2023-11-01 08:00",
+            "title": "Popular Drama"
+        },
+        {
+            "channel_id": 11,
+            "start_time": "2023-11-01 08:00",
+            "end_time": "2023-11-01 09:00",
+            "title": "Primetime Now!"
+        },
+        {
+            "channel_id": 11,
+            "start_time": "2023-11-01 09:00",
+            "end_time": "2023-11-01 10:00",
+            "title": "Late Report"
+        },
+        {
+            "channel_id": 11,
+            "start_time": "2023-11-01 10:00",
+            "end_time": "2023-11-01 10:30",
+            "title": "Local News"
+        },
+        {
+            "channel_id": 11,
+            "start_time": "2023-11-01 10:30",
+            "end_time": "2023-11-01 12:00",
+            "title": "Late Show"
+        },
+        {
+            "channel_id": 1,
+            "start_time": "2023-11-01 06:00",
+            "end_time": "2023-11-01 06:30",
+            "title": "Culinary Creations"
+        },
+        {
+            "channel_id": 1,
+            "start_time": "2023-11-01 09:30",
+            "end_time": "2023-11-01 10:30",
+            "title": "Celebrity Behind the Scenes"
+        },
+        {
+            "channel_id": 1,
+            "start_time": "2023-11-01 06:30",
+            "end_time": "2023-11-01 07:00",
+            "title": "Extreme Home Videos"
+        },
+        {
+            "channel_id": 1,
+            "start_time": "2023-11-01 07:00",
+            "end_time": "2023-11-01 08:00",
+            "title": "Music Videos"
+        },
+        {
+            "channel_id": 2,
+            "start_time": "2023-11-01 06:00",
+            "end_time": "2023-11-01 07:00",
+            "title": "News On the Hour"
+        },
+        {
+            "channel_id": 3,
+            "start_time": "2023-11-01 09:00",
+            "end_time": "2023-11-01 11:00",
+            "title": "Journey to Avalon"
+        },
+        {
+            "channel_id": 2,
+            "start_time": "2023-11-01 07:00",
+            "end_time": "2023-11-01 08:00",
+            "title": "News on the Hour"
+        },
+        {
+            "channel_id": 2,
+            "start_time": "2023-11-01 08:00",
+            "end_time": "2023-11-01 09:00",
+            "title": "News on the Hour"
+        },
+        {
+            "channel_id": 4,
+            "start_time": "2023-11-01 06:00",
+            "end_time": "2023-11-01 06:30",
+            "title": "Renovate My Place"
+        },
+        {
+            "channel_id": 4,
+            "start_time": "2023-11-01 06:30",
+            "end_time": "2023-11-01 07:00",
+            "title": "Fixers"
+        },
+        {
+            "channel_id": 4,
+            "start_time": "2023-11-01 07:00",
+            "end_time": "2023-11-01 07:30",
+            "title": "Fixers"
+        },
+        {
+            "channel_id": 4,
+            "start_time": "2023-11-01 07:30",
+            "end_time": "2023-11-01 08:00",
+            "title": "Flip That Flop!"
+        },
+        {
+            "channel_id": 4,
+            "start_time": "2023-11-01 08:00",
+            "end_time": "2023-11-01 08:30",
+            "title": "Remodel Masters"
+        },
+        {
+            "channel_id": 4,
+            "start_time": "2023-11-01 08:30",
+            "end_time": "2023-11-01 09:00",
+            "title": "Coastal Homes"
+        },
+        {
+            "channel_id": 4,
+            "start_time": "2023-11-01 09:00",
+            "end_time": "2023-11-01 10:00",
+            "title": "Celebrity Digs"
+        },
+        {
+            "channel_id": 7,
+            "start_time": "2023-11-01 06:00",
+            "end_time": "2023-11-01 08:00",
+            "title": "Baseball Game"
+        },
+        {
+            "channel_id": 7,
+            "start_time": "2023-11-01 08:00",
+            "end_time": "2023-11-01 11:00",
+            "title": "Baseball Game"
+        },
+        {
+            "channel_id": 7,
+            "start_time": "2023-11-01 11:00",
+            "end_time": "2023-11-01 12:00",
+            "title": "Baseball Game"
+        },
+        {
+            "channel_id": 5,
+            "start_time": "2023-11-01 10:00",
+            "end_time": "2023-11-01 12:00",
+            "title": "Football Recap"
+        },
+        {
+            "channel_id": 5,
+            "start_time": "2023-11-01 06:00",
+            "end_time": "2023-11-01 10:00",
+            "title": "American Football Championship"
+        },
+        {
+            "channel_id": 6,
+            "start_time": "2023-11-01 06:30",
+            "end_time": "2023-11-01 09:30",
+            "title": "Soccer Cup"
+        },
+        {
+            "channel_id": 6,
+            "start_time": "2023-11-01 09:30",
+            "end_time": "2023-11-01 10:00",
+            "title": "Soccer After-Show"
+        },
+        {
+            "channel_id": 10,
+            "start_time": "2023-11-01 06:00",
+            "end_time": "2023-11-01 07:00",
+            "title": "Pop Hits"
+        },
+        {
+            "channel_id": 10,
+            "start_time": "2023-11-01 07:00",
+            "end_time": "2023-11-01 08:00",
+            "title": "Top Rock"
+        },
+        {
+            "channel_id": 10,
+            "start_time": "2023-11-01 08:00",
+            "end_time": "2023-11-01 09:00",
+            "title": "R&B Time"
+        },
+        {
+            "channel_id": 10,
+            "start_time": "2023-11-01 09:00",
+            "end_time": "2023-11-01 10:00",
+            "title": "Rap"
+        },
+        {
+            "channel_id": 10,
+            "start_time": "2023-11-01 10:00",
+            "end_time": "2023-11-01 11:00",
+            "title": "Smooth Jazz"
+        },
+        {
+            "channel_id": 10,
+            "start_time": "2023-11-01 11:00",
+            "end_time": "2023-11-01 12:00",
+            "title": "Pop Hits"
+        },
+        {
+            "channel_id": 9,
+            "start_time": "2023-11-01 06:00",
+            "end_time": "2023-11-01 12:00",
+            "title": "Shopping Channel All Access"
+        },
+        {
+            "channel_id": 3,
+            "start_time": "2023-11-01 06:00",
+            "end_time": "2023-11-01 08:00",
+            "title": "The Midnight Heist"
+        },
+        {
+            "channel_id": 8,
+            "start_time": "2023-11-01 06:00",
+            "end_time": "2023-11-01 06:30",
+            "title": "Toon Time"
+        },
+        {
+            "channel_id": 8,
+            "start_time": "2023-11-01 06:30",
+            "end_time": "2023-11-01 07:00",
+            "title": "Toon Time"
+        },
+        {
+            "channel_id": 8,
+            "start_time": "2023-11-01 07:00",
+            "end_time": "2023-11-01 07:30",
+            "title": "Toon Time"
+        },
+        {
+            "channel_id": 8,
+            "start_time": "2023-11-01 07:30",
+            "end_time": "2023-11-01 08:00",
+            "title": "Toon Time"
+        },
+        {
+            "channel_id": 8,
+            "start_time": "2023-11-01 08:00",
+            "end_time": "2023-11-01 08:30",
+            "title": "Tiny Tinker Tales"
+        },
+        {
+            "channel_id": 8,
+            "start_time": "2023-11-01 08:30",
+            "end_time": "2023-11-01 09:00",
+            "title": "Pirate Cove Playtime"
+        },
+        {
+            "channel_id": 8,
+            "start_time": "2023-11-01 09:00",
+            "end_time": "2023-11-01 09:30",
+            "title": "Pirate Cove Playtime"
+        },
+        {
+            "channel_id": 8,
+            "start_time": "2023-11-01 09:30",
+            "end_time": "2023-11-01 10:00",
+            "title": "Pirate Cove Playtime"
+        },
+        {
+            "channel_id": 8,
+            "start_time": "2023-11-01 10:00",
+            "end_time": "2023-11-01 10:30",
+            "title": "Laughlandia"
+        },
+        {
+            "channel_id": 8,
+            "start_time": "2023-11-01 10:30",
+            "end_time": "2023-11-01 11:00",
+            "title": "Rainbow Rollercoaster"
+        },
+        {
+            "channel_id": 8,
+            "start_time": "2023-11-01 11:00",
+            "end_time": "2023-11-01 11:30",
+            "title": "Puzzle Planet Pals"
+        },
+        {
+            "channel_id": 8,
+            "start_time": "2023-11-01 11:30",
+            "end_time": "2023-11-01 12:00",
+            "title": "Adventureville"
+        },
+        {
+            "channel_id": 2,
+            "start_time": "2023-11-01 09:00",
+            "end_time": "2023-11-01 09:30",
+            "title": "Headlines"
+        },
+        {
+            "channel_id": 4,
+            "start_time": "2023-11-01 10:00",
+            "end_time": "2023-11-01 10:30",
+            "title": "Renovate and Elevate"
+        },
+        {
+            "channel_id": 4,
+            "start_time": "2023-11-01 10:30",
+            "end_time": "2023-11-01 11:00",
+            "title": "Renovation Rescue"
+        },
+        {
+            "channel_id": 4,
+            "start_time": "2023-11-01 11:00",
+            "end_time": "2023-11-01 12:00",
+            "title": "Property Perfection"
+        },
+        {
+            "channel_id": 1,
+            "start_time": "2023-11-01 08:00",
+            "end_time": "2023-11-01 09:30",
+            "title": "Variety Vista"
+        },
+        {
+            "channel_id": 1,
+            "start_time": "2023-11-01 10:30",
+            "end_time": "2023-11-01 12:00",
+            "title": "Universal Unwind"
+        },
+        {
+            "channel_id": 2,
+            "start_time": "2023-11-01 09:30",
+            "end_time": "2023-11-01 10:00",
+            "title": "Headlines"
+        },
+        {
+            "channel_id": 2,
+            "start_time": "2023-11-01 10:00",
+            "end_time": "2023-11-01 11:00",
+            "title": "News on the Hour"
+        },
+        {
+            "channel_id": 2,
+            "start_time": "2023-11-01 11:00",
+            "end_time": "2023-11-01 12:00",
+            "title": "News on the Hour"
+        },
+        {
+            "channel_id": 3,
+            "start_time": "2023-11-01 08:00",
+            "end_time": "2023-11-01 09:00",
+            "title": "Secrets of the Abyss"
+        },
+        {
+            "channel_id": 3,
+            "start_time": "2023-11-01 11:00",
+            "end_time": "2023-11-01 12:00",
+            "title": "The Last Laugh"
+        },
+        {
+            "channel_id": 6,
+            "start_time": "2023-11-01 06:00",
+            "end_time": "2023-11-01 06:30",
+            "title": "Soccer Pre-Game"
+        },
+        {
+            "channel_id": 12,
+            "start_time": "2023-11-01 06:00",
+            "end_time": "2023-11-01 06:30",
+            "title": "Morning Variety Show"
+        },
+        {
+            "channel_id": 12,
+            "start_time": "2023-11-01 06:30",
+            "end_time": "2023-11-01 07:00",
+            "title": "Comedy Hour"
+        },
+        {
+            "channel_id": 12,
+            "start_time": "2023-11-01 07:00",
+            "end_time": "2023-11-01 07:30",
+            "title": "Music Extravaganza"
+        },
+        {
+            "channel_id": 12,
+            "start_time": "2023-11-01 07:30",
+            "end_time": "2023-11-01 08:00",
+            "title": "Cooking Adventures"
+        },
+        {
+            "channel_id": 12,
+            "start_time": "2023-11-01 08:00",
+            "end_time": "2023-11-01 08:30",
+            "title": "Talk Show Delight"
+        },
+        {
+            "channel_id": 12,
+            "start_time": "2023-11-01 08:30",
+            "end_time": "2023-11-01 09:00",
+            "title": "Travelers' Tales"
+        },
+        {
+            "channel_id": 12,
+            "start_time": "2023-11-01 09:00",
+            "end_time": "2023-11-01 09:30",
+            "title": "Game Show Bonanza"
+        },
+        {
+            "channel_id": 12,
+            "start_time": "2023-11-01 09:30",
+            "end_time": "2023-11-01 10:00",
+            "title": "Home Improvement Hour"
+        },
+        {
+            "channel_id": 12,
+            "start_time": "2023-11-01 10:00",
+            "end_time": "2023-11-01 10:30",
+            "title": "Musical Medley"
+        },
+        {
+            "channel_id": 12,
+            "start_time": "2023-11-01 10:30",
+            "end_time": "2023-11-01 11:00",
+            "title": "Classic Movie Matinee"
+        },
+        {
+            "channel_id": 12,
+            "start_time": "2023-11-01 11:00",
+            "end_time": "2023-11-01 11:30",
+            "title": "Dance Party Time"
+        },
+        {
+            "channel_id": 12,
+            "start_time": "2023-11-01 11:30",
+            "end_time": "2023-11-01 12:00",
+            "title": "Variety Showcase"
+        },
+        {
+            "channel_id": 13,
+            "start_time": "2023-11-01 06:00",
+            "end_time": "2023-11-01 08:00",
+            "title": "Classic Movie Marathon"
+        },
+        {
+            "channel_id": 13,
+            "start_time": "2023-11-01 08:00",
+            "end_time": "2023-11-01 10:00",
+            "title": "Blockbuster Extravaganza"
+        },
+        {
+            "channel_id": 13,
+            "start_time": "2023-11-01 10:00",
+            "end_time": "2023-11-01 12:00",
+            "title": "Awards Season Showcase"
+        },
+        {
+            "channel_id": 14,
+            "start_time": "2023-11-01 06:00",
+            "end_time": "2023-11-01 06:30",
+            "title": "Buenos Días América"
+        },
+        {
+            "channel_id": 14,
+            "start_time": "2023-11-01 06:30",
+            "end_time": "2023-11-01 07:00",
+            "title": "Comedia en Familia"
+        },
+        {
+            "channel_id": 14,
+            "start_time": "2023-11-01 07:00",
+            "end_time": "2023-11-01 07:30",
+            "title": "Cocina Latina"
+        },
+        {
+            "channel_id": 14,
+            "start_time": "2023-11-01 07:30",
+            "end_time": "2023-11-01 08:00",
+            "title": "Dramas de Pasión"
+        },
+        {
+            "channel_id": 14,
+            "start_time": "2023-11-01 08:00",
+            "end_time": "2023-11-01 08:30",
+            "title": "Noticias Hispanas"
+        },
+        {
+            "channel_id": 14,
+            "start_time": "2023-11-01 08:30",
+            "end_time": "2023-11-01 09:00",
+            "title": "El Mundo al Día"
+        },
+        {
+            "channel_id": 14,
+            "start_time": "2023-11-01 09:00",
+            "end_time": "2023-11-01 09:30",
+            "title": "Telenovela Time"
+        },
+        {
+            "channel_id": 14,
+            "start_time": "2023-11-01 09:30",
+            "end_time": "2023-11-01 10:00",
+            "title": "Entretenimiento Familiar"
+        },
+        {
+            "channel_id": 14,
+            "start_time": "2023-11-01 10:00",
+            "end_time": "2023-11-01 10:30",
+            "title": "Realidades Latinas"
+        },
+        {
+            "channel_id": 14,
+            "start_time": "2023-11-01 10:30",
+            "end_time": "2023-11-01 11:00",
+            "title": "Ritmos Latinos"
+        },
+        {
+            "channel_id": 14,
+            "start_time": "2023-11-01 11:00",
+            "end_time": "2023-11-01 11:30",
+            "title": "Magia y Misterio"
+        },
+        {
+            "channel_id": 14,
+            "start_time": "2023-11-01 11:30",
+            "end_time": "2023-11-01 12:00",
+            "title": "Viajes y Aventuras"
+        }
+    ]
+}
