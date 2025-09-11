@@ -1373,6 +1373,7 @@ GameObject:
   - component: {fileID: 1566812368080601437}
   - component: {fileID: 5381511348061662908}
   - component: {fileID: 7276916854675197110}
+  - component: {fileID: 8397061811692245556}
   - component: {fileID: 6950626314231376888}
   m_Layer: 8
   m_Name: Worker
@@ -1439,6 +1440,24 @@ MonoBehaviour:
     _sprintSpeed: 5.335
     _speedChangeRate: 10
     _rotationSmoothTime: 0.12
+--- !u!114 &8397061811692245556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7624829919324630657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875eb7ac3e5a45840a83a136588b8e5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorkerFaceView
+  _eyeMaskRendererL: {fileID: 7130028891418721242}
+  _eyeFrameRendererL: {fileID: 6055047461131568921}
+  _eyeMaskRendererR: {fileID: 1239369250715481093}
+  _eyeFrameRendererR: {fileID: 2866037388589140166}
+  EyeOpenScale: 1
+  EyeOpenAmount: 1
 --- !u!143 &6950626314231376888
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1462,7 +1481,7 @@ CharacterController:
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &7745291126955844644
 GameObject:
@@ -1745,6 +1764,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f840015e3f8ebc47abbaa117851a841, type: 3}
+--- !u!137 &1239369250715481093 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4297667427326377707, guid: 9f840015e3f8ebc47abbaa117851a841, type: 3}
+  m_PrefabInstance: {fileID: 3069060231267748590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2866037388589140166 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 959631573356249640, guid: 9f840015e3f8ebc47abbaa117851a841, type: 3}
+  m_PrefabInstance: {fileID: 3069060231267748590}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5915261363513956469 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8683015791830471323, guid: 9f840015e3f8ebc47abbaa117851a841, type: 3}
@@ -1810,6 +1839,16 @@ PrefabInstance:
 --- !u!4 &2438372209290336170 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8683015791830471323, guid: 9f840015e3f8ebc47abbaa117851a841, type: 3}
+  m_PrefabInstance: {fileID: 6437493526850094385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &6055047461131568921 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 959631573356249640, guid: 9f840015e3f8ebc47abbaa117851a841, type: 3}
+  m_PrefabInstance: {fileID: 6437493526850094385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &7130028891418721242 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4297667427326377707, guid: 9f840015e3f8ebc47abbaa117851a841, type: 3}
   m_PrefabInstance: {fileID: 6437493526850094385}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7194313395578989548

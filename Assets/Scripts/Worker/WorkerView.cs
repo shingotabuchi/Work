@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(WorkerFaceView))]
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(Animator))]
 public class WorkerView : MonoBehaviour
@@ -12,6 +13,7 @@ public class WorkerView : MonoBehaviour
 
     private Animator _animator;
     private CharacterController _characterController;
+    private WorkerFaceView _faceView;
 
     private WorkerController _controller;
     private IWorkerModel _model;
@@ -29,6 +31,7 @@ public class WorkerView : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _characterController = GetComponent<CharacterController>();
+        _faceView = GetComponent<WorkerFaceView>();
 
         _controller = new WorkerController(this);
         _model = _controller.Model;
@@ -51,6 +54,8 @@ public class WorkerView : MonoBehaviour
 
     public void UpdateView(float deltaTime)
     {
+        _faceView.UpdateView(deltaTime);
+
         var targetSpeed = _inputs.Sprint ? _model.SprintSpeed : _model.MoveSpeed;
 
         if (_inputs.Move == Vector2.zero)

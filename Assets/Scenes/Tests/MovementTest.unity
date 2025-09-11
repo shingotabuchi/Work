@@ -431,10 +431,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6950626314231376888, guid: e258221d202124d29a427c045d308c6e, type: 3}
-      propertyPath: m_MinMoveDistance
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7624829919324630657, guid: e258221d202124d29a427c045d308c6e, type: 3}
       propertyPath: m_Name
       value: Worker
