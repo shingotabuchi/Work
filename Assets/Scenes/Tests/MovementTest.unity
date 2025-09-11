@@ -391,6 +391,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1239369250715481093, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[0]'
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1566812368080601437, guid: e258221d202124d29a427c045d308c6e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -431,9 +435,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2866037388589140166, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[0]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6055047461131568921, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[0]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130028891418721242, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[0]'
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7624829919324630657, guid: e258221d202124d29a427c045d308c6e, type: 3}
       propertyPath: m_Name
       value: Worker
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397061811692245556, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: EyeOpenAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397061811692245556, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: _normalCurve.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397061811692245556, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: _normalCurve.m_Curve.Array.data[1].time
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397061811692245556, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: _normalCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397061811692245556, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: _normalCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397061811692245556, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: _normalCurve.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397061811692245556, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: _normalCurve.m_Curve.Array.data[0].outWeight
+      value: 0.08488964
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397061811692245556, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: _normalCurve.m_Curve.Array.data[1].outWeight
+      value: 0.08998299
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
