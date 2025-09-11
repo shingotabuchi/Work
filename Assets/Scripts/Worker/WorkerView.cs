@@ -96,7 +96,7 @@ public class WorkerView : MonoBehaviour
         if (_animationBlend < 0.01f) _animationBlend = 0f;
 
         _animator.SetFloat(_animIDSpeed, _animationBlend);
-        _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
+        // _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
     }
 
     private void OnFootstep(AnimationEvent animationEvent)
