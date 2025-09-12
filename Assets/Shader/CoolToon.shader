@@ -193,7 +193,7 @@ Shader "Custom/CoolToon"
         Pass
         {
             Name "Outline"
-            Tags{ "LightMode"="SRPDefaultUnlit" }
+            Tags { "LightMode" = "Outline" }
             Cull [_OutlineCull]
             ZWrite [_ZWrite]
             ZTest LEqual
