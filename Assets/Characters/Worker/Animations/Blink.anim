@@ -51,7 +51,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: EyeOpenAmount
+    attribute: EyeOpenAmountFromAnimator
     path: 
     classID: 114
     script: {fileID: 11500000, guid: 875eb7ac3e5a45840a83a136588b8e5c, type: 3}
@@ -66,7 +66,7 @@ AnimationClip:
     genericBindings:
     - serializedVersion: 2
       path: 0
-      attribute: 3555276653
+      attribute: 574570826
       script: {fileID: 11500000, guid: 875eb7ac3e5a45840a83a136588b8e5c, type: 3}
       typeID: 114
       customType: 0
@@ -129,7 +129,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: EyeOpenAmount
+    attribute: EyeOpenAmountFromAnimator
     path: 
     classID: 114
     script: {fileID: 11500000, guid: 875eb7ac3e5a45840a83a136588b8e5c, type: 3}

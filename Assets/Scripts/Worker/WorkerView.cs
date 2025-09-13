@@ -1,8 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(WorkerFaceView))]
 [RequireComponent(typeof(CharacterController))]
-[RequireComponent(typeof(Animator))]
 public class WorkerView : MonoBehaviour
 {
 #if UNITY_EDITOR
@@ -13,7 +11,7 @@ public class WorkerView : MonoBehaviour
 
     private Animator _animator;
     private CharacterController _characterController;
-    private WorkerFaceView _faceView;
+    private WorkerFaceAnimationController _faceAnimation;
 
     private WorkerController _controller;
     private IWorkerModel _model;
@@ -29,9 +27,9 @@ public class WorkerView : MonoBehaviour
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
+        _animator = GetComponentInChildren<Animator>();
         _characterController = GetComponent<CharacterController>();
-        _faceView = GetComponent<WorkerFaceView>();
+        _faceAnimation = GetComponentInChildren<WorkerFaceAnimationController>();
 
         _controller = new WorkerController(this);
         _model = _controller.Model;
@@ -54,7 +52,7 @@ public class WorkerView : MonoBehaviour
 
     public void UpdateView(float deltaTime)
     {
-        _faceView.UpdateView(deltaTime);
+        _faceAnimation.UpdateView(deltaTime);
 
         var targetSpeed = _inputs.Sprint ? _model.SprintSpeed : _model.MoveSpeed;
 
@@ -102,9 +100,5 @@ public class WorkerView : MonoBehaviour
 
         _animator.SetFloat(_animIDSpeed, _animationBlend);
         // _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
-    }
-
-    private void OnFootstep(AnimationEvent animationEvent)
-    {
     }
 }

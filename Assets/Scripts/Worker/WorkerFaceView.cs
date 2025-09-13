@@ -1,7 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
-public class WorkerFaceView : MonoBehaviour
+public class WorkerFaceAnimationController : MonoBehaviour
 {
     [SerializeField] private SkinnedMeshRenderer _eyeMaskRendererL;
     [SerializeField] private SkinnedMeshRenderer _eyeFrameRendererL;
@@ -9,18 +8,20 @@ public class WorkerFaceView : MonoBehaviour
     [SerializeField] private SkinnedMeshRenderer _eyeFrameRendererR;
 
     public float EyeOpenScale = 1.0f;
+    [Range(0, 1)] public float EyeOpenAmountFromAnimator = 1.0f;
     [Range(0, 1)] public float EyeOpenAmount = 1.0f;
 
     private Animator _animator;
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     public void UpdateView(float deltaTime)
     {
-        var blink = (1 - EyeOpenAmount * EyeOpenScale) * 100;
+        var eyeOpen = Mathf.Clamp01(EyeOpenAmountFromAnimator * EyeOpenAmount * EyeOpenScale);
+        var blink = (1 - eyeOpen) * 100;
         _eyeMaskRendererL.SetBlendShapeWeight(0, blink);
         _eyeFrameRendererL.SetBlendShapeWeight(0, blink);
         _eyeMaskRendererR.SetBlendShapeWeight(0, blink);
