@@ -105,6 +105,7 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _AmbientStrength: 1
     - _Blend: 0
     - _BlendMode: 3
     - _BlendModePreserveSpecular: 1
@@ -117,6 +118,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _DstBlendAlpha: 0
+    - _EnableRim: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -133,7 +135,7 @@ Material:
     - _ReceiveShadows: 1
     - _RenderQueue: 2463
     - _RimIntensity: 0
-    - _RimPower: 0.1
+    - _RimPower: 1
     - _ShadingStrength: 0
     - _ShadowSmoothness: 0
     - _ShadowThreshold: 0

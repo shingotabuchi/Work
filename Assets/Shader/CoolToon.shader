@@ -18,8 +18,10 @@ Shader "Custom/CoolToon"
         _ShadowThreshold ("Shadow Threshold", Range(0,1)) = 0.5
         _ShadowSmoothness ("Shadow Smoothness", Range(0,0.1)) = 0.01
         _ShadingStrength ("Shading Strength", Range(0,1)) = 1
+        _AmbientStrength ("Ambient Strength", Range(0,2)) = 1
         
         [Header(Rim Light)]
+        [Toggle(_RIM)] _EnableRim ("Enable Rim Light", Float) = 1
         _RimColor ("Rim Color", Color) = (1,1,1,1)
         _RimPower ("Rim Power", Range(0.1,16)) = 4
         _RimIntensity ("Rim Intensity", Range(0,2)) = 0.5
@@ -61,6 +63,7 @@ Shader "Custom/CoolToon"
 
         HLSLINCLUDE
         #pragma target 3.0
+        #pragma multi_compile _ _RIM
 
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
@@ -75,6 +78,7 @@ Shader "Custom/CoolToon"
             float  _ShadowThreshold;
             float  _ShadowSmoothness;
             float  _ShadingStrength;
+            float  _AmbientStrength;
             float  _OutlineWidth;
             float  _OutlineFixWidth;
             float  _OutlineZBias;
@@ -151,6 +155,10 @@ Shader "Custom/CoolToon"
             N = normalize(N);
             V = normalize(V);
 
+            // Start with ambient light
+            float3 ambientLight = SampleSH(N) * _AmbientStrength;
+            col = baseRGB * ambientLight;
+
             // Main light two-tone shading
             float4 shadowCoord = TransformWorldToShadowCoord(positionWS);
             Light mainLight = GetMainLight(shadowCoord);
@@ -165,7 +173,7 @@ Shader "Custom/CoolToon"
             float3 lightColor = lerp(_ShadowColor.rgb * baseRGB, baseRGB, toonShade);
             // Blend between flat lighting and two-tone shading based on shading strength
             lightColor = lerp(baseRGB, lightColor, _ShadingStrength);
-            col = lightColor * mainLight.color;
+            col += lightColor * mainLight.color;
 
             // Additional lights with two-tone shading
             uint count = GetAdditionalLightsCount();
@@ -180,10 +188,12 @@ Shader "Custom/CoolToon"
                 col += additionalLight * l.color * l.distanceAttenuation * l.shadowAttenuation;
             LIGHT_LOOP_END
 
+            #if _RIM
             // Rim lighting (Fresnel-based)
             float fresnel = 1.0 - saturate(dot(N, V));
             float rim = pow(fresnel, _RimPower) * _RimIntensity;
             col += _RimColor.rgb * rim;
+            #endif
             
             return col;
         }
