@@ -63,7 +63,7 @@ Material:
     - _RenderQueue: 2000
     - _RimIntensity: 0
     - _RimPower: 1
-    - _ShadingStrength: 0
+    - _ShadingStrength: 1
     - _ShadowSmoothness: 0
     - _ShadowThreshold: 0
     - _SrcBlend: 1
@@ -83,6 +83,6 @@ Material:
     - _BaseColor: {r: 0.9960785, g: 0.89019614, b: 0.8313726, a: 1}
     - _OutlineColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ShadowColor: {r: 1, g: 0.8937008, b: 0.8346457, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
