@@ -15,7 +15,7 @@ Shader "Custom/CoolToon"
         
         [Header(Toon Shading)]
         _ShadowColor ("Shadow Color", Color) = (0.5,0.5,0.5,1)
-        _ShadowThreshold ("Shadow Threshold", Range(0,1)) = 0.5
+        _ShadowThreshold ("Shadow Threshold", Range(-1,1)) = 0.5
         _ShadowSmoothness ("Shadow Smoothness", Range(0,0.1)) = 0.01
         _ShadingStrength ("Shading Strength", Range(0,1)) = 1
         _AmbientStrength ("Ambient Strength", Range(0,2)) = 1
@@ -162,7 +162,7 @@ Shader "Custom/CoolToon"
             // Main light two-tone shading
             float4 shadowCoord = TransformWorldToShadowCoord(positionWS);
             Light mainLight = GetMainLight(shadowCoord);
-            float NdotL = saturate(dot(N, mainLight.direction));
+            float NdotL = dot(N, mainLight.direction);
             float litTerm = NdotL * mainLight.shadowAttenuation;
             
             // Two-tone threshold with smoothstep for anti-aliasing
@@ -179,7 +179,7 @@ Shader "Custom/CoolToon"
             uint count = GetAdditionalLightsCount();
             LIGHT_LOOP_BEGIN(count)
                 Light l = GetAdditionalLight(lightIndex, positionWS);
-                float nl = saturate(dot(N, l.direction));
+                float nl = dot(N, l.direction);
                 float additionalToon = smoothstep(_ShadowThreshold - _ShadowSmoothness, 
                                                 _ShadowThreshold + _ShadowSmoothness, nl);
                 float3 additionalLight = lerp(_ShadowColor.rgb * baseRGB, baseRGB, additionalToon);
