@@ -21,6 +21,10 @@ public class ThirdPersonCameraController : MonoBehaviour
     [Tooltip("For locking the camera position on all axis")]
     public bool LockCameraPosition = false;
 
+    [Header("Camera Sensitivity")]
+    [Tooltip("Mouse look sensitivity")]
+    public float MouseSensitivity = 1.0f;
+
     // cinemachine
     private float _cinemachineTargetYaw;
     private float _cinemachineTargetPitch;
@@ -51,8 +55,8 @@ public class ThirdPersonCameraController : MonoBehaviour
         // if there is an input and camera position is not fixed
         if (_input.Look.sqrMagnitude >= _threshold && !LockCameraPosition)
         {
-            _cinemachineTargetYaw += _input.Look.x;
-            _cinemachineTargetPitch -= _input.Look.y;
+            _cinemachineTargetYaw += _input.Look.x * MouseSensitivity;
+            _cinemachineTargetPitch -= _input.Look.y * MouseSensitivity;
         }
 
         // clamp our rotations so our values are limited 360 degrees
