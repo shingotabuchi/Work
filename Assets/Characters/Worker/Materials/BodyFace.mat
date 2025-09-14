@@ -63,7 +63,7 @@ Material:
     - _RenderQueue: 2470
     - _RimIntensity: 0
     - _RimPower: 1
-    - _ShadingStrength: 1
+    - _ShadingStrength: 0
     - _ShadowSmoothness: 0
     - _ShadowThreshold: 0
     - _SrcBlend: 1
