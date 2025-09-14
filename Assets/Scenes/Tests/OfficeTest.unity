@@ -653,12 +653,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1873586513239671831, guid: e258221d202124d29a427c045d308c6e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1873586513239671831, guid: e258221d202124d29a427c045d308c6e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
+      propertyPath: m_LocalScale.x
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2083772867807505097, guid: e258221d202124d29a427c045d308c6e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -706,10 +702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2083772867807505097, guid: e258221d202124d29a427c045d308c6e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 510904253}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e258221d202124d29a427c045d308c6e, type: 3}
 --- !u!4 &165326959 stripped
@@ -2007,37 +2000,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2735600099472490091, guid: 14aaf7e391c0cc044bf52c03498794a4, type: 3}
   m_PrefabInstance: {fileID: 475334056}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &510904252
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 510904253}
-  m_Layer: 0
-  m_Name: CameraTarget
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &510904253
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 510904252}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 771862187}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &539872046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2559,11 +2521,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1606988273563036980, guid: a74a09f4241aa4232807c5f4a5b2fa3d, type: 3}
   m_PrefabInstance: {fileID: 771404143}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &771862187 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2083772867807505097, guid: e258221d202124d29a427c045d308c6e, type: 3}
-  m_PrefabInstance: {fileID: 154273099}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &801055085
 PrefabInstance:

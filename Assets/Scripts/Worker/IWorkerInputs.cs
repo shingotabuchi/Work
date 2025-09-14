@@ -4,6 +4,7 @@ public interface IWorkerInputs
 {
     bool Sprint { get; }
     Vector2 Move { get; }
+    Vector2 Look { get; }
     float MoveMagnitude { get; }
     float DirectionAngle { get; }
 
