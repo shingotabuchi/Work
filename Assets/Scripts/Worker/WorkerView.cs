@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
 public class WorkerView : MonoBehaviour
 {
 #if UNITY_EDITOR
@@ -28,7 +27,7 @@ public class WorkerView : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
-        _characterController = GetComponent<CharacterController>();
+        _characterController = GetComponentInChildren<CharacterController>();
         _faceAnimation = GetComponentInChildren<WorkerFaceAnimationController>();
 
         _controller = new WorkerController(this);
