@@ -92,7 +92,7 @@ public class WorkerView : MonoBehaviour
 
         var targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
-        _characterController.Move(targetDirection.normalized * (_speed * deltaTime));
+        _characterController.Move(targetDirection.normalized * _speed * deltaTime);
 
         _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, deltaTime * _model.SpeedChangeRate);
         if (_animationBlend < 0.01f) _animationBlend = 0f;
