@@ -10,6 +10,8 @@ public class AppManager : SingletonPersistent<AppManager>
         base.Awake();
         CameraManager.CreateIfNotExists();
 
+        PlayerManager.Instance.Initialize();
+
 #if UNITY_EDITOR
         WorkerWasdInputs.Instance.Initialize();
 #endif
@@ -18,7 +20,9 @@ public class AppManager : SingletonPersistent<AppManager>
     private void Update()
     {
         _deltaTime = Time.deltaTime;
+
         WorkerManager.Instance.Update(_deltaTime);
+        PlayerManager.Instance.Update(_deltaTime);
 
 #if UNITY_EDITOR
         WorkerWasdInputs.Instance.Update(_deltaTime);

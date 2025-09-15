@@ -642,8 +642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c465a518ca2a32840b51f68956d781eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorkerComponent
-  _useWasdInputs: 1
-  _useDebugModel: 1
+  _useWasdInputs: 0
+  _useDebugModel: 0
   _debugModel:
     _moveSpeed: 2
     _sprintSpeed: 5.335
