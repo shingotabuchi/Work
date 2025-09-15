@@ -9,7 +9,6 @@ public class WorkerView : MonoBehaviour
 #endif
 
     private Animator _animator;
-    private CharacterController _characterController;
     private WorkerFaceAnimationController _faceAnimation;
 
     private WorkerController _controller;
@@ -27,7 +26,6 @@ public class WorkerView : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
-        _characterController = GetComponentInChildren<CharacterController>();
         _faceAnimation = GetComponentInChildren<WorkerFaceAnimationController>();
 
         _controller = new WorkerController(this);
@@ -61,24 +59,24 @@ public class WorkerView : MonoBehaviour
         }
 
         // a reference to the players current horizontal velocity
-        var currentHorizontalSpeed = new Vector3(_characterController.velocity.x, 0.0f, _characterController.velocity.z).magnitude;
+        // var currentHorizontalSpeed = new Vector3(_characterController.velocity.x, 0.0f, _characterController.velocity.z).magnitude;
 
         var speedOffset = 0.1f;
         var inputMagnitude = _inputs.MoveMagnitude;
 
-        // accelerate or decelerate to target speed
-        if (currentHorizontalSpeed < targetSpeed - speedOffset ||
-            currentHorizontalSpeed > targetSpeed + speedOffset)
-        {
-            _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
-                deltaTime * _model.SpeedChangeRate);
+        // // accelerate or decelerate to target speed
+        // if (currentHorizontalSpeed < targetSpeed - speedOffset ||
+        //     currentHorizontalSpeed > targetSpeed + speedOffset)
+        // {
+        //     _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
+        //         deltaTime * _model.SpeedChangeRate);
 
-            _speed = Mathf.Round(_speed * 1000f) / 1000f;
-        }
-        else
-        {
-            _speed = targetSpeed;
-        }
+        //     _speed = Mathf.Round(_speed * 1000f) / 1000f;
+        // }
+        // else
+        // {
+        //     _speed = targetSpeed;
+        // }
 
         if (_inputs.Move != Vector2.zero)
         {
@@ -92,7 +90,7 @@ public class WorkerView : MonoBehaviour
 
         var targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
-        _characterController.Move(targetDirection.normalized * _speed * deltaTime);
+        // _characterController.Move(targetDirection.normalized * _speed * deltaTime);
 
         _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, deltaTime * _model.SpeedChangeRate);
         if (_animationBlend < 0.01f) _animationBlend = 0f;

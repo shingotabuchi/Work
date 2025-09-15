@@ -1,7 +1,9 @@
 using Fwk;
+using Pathfinding.RVO;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(RVOController))]
 public class PlayerMover : Singleton<PlayerMover>
 {
     [SerializeField] private float _walkSpeed = 3f;
@@ -11,6 +13,7 @@ public class PlayerMover : Singleton<PlayerMover>
     [SerializeField] private Transform _camTarget;
 
     private CharacterController _characterController;
+    private RVOController _rvoController;
     private Transform _playerTransform;
 
     private float _speed;
@@ -21,6 +24,7 @@ public class PlayerMover : Singleton<PlayerMover>
     {
         base.Awake();
         _characterController = GetComponent<CharacterController>();
+        _rvoController = GetComponent<RVOController>();
         _playerTransform = transform;
         var camTargetEuler = _camTarget.localRotation.eulerAngles;
         var euler = _playerTransform.rotation.eulerAngles;
@@ -70,6 +74,7 @@ public class PlayerMover : Singleton<PlayerMover>
         var direction = move.y * _playerTransform.forward + move.x * _playerTransform.right;
         direction.y = 0;
         direction.Normalize();
-        _characterController.Move(direction * (_speed * deltaTime));
+        _characterController.Move(direction * _speed * deltaTime);
+        _rvoController.velocity = _characterController.velocity;
     }
 }
