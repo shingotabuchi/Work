@@ -26,6 +26,12 @@ Shader "Custom/CoolToon"
         _RimPower ("Rim Power", Range(0.1,16)) = 4
         _RimIntensity ("Rim Intensity", Range(0,2)) = 0.5
         
+        [Header(HDR and Bloom)]
+        [HDR] _EmissionColor ("Emission Color", Color) = (0,0,0,1)
+        _EmissionMap ("Emission Map", 2D) = "white" {}
+        _BloomIntensity ("Bloom Intensity", Range(0,10)) = 1
+        [Toggle(_EMISSION)] _EnableEmission ("Enable Emission", Float) = 0
+        
         [Header(Outline)]
         [Toggle(_OUTLINE)] _UseOutline ("Enable Outline", Float) = 1
         _OutlineColor ("Outline Color", Color) = (0,0,0,1)
@@ -64,6 +70,7 @@ Shader "Custom/CoolToon"
         HLSLINCLUDE
         #pragma target 3.0
         #pragma multi_compile _ _RIM
+        #pragma multi_compile _ _EMISSION
 
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
@@ -73,6 +80,7 @@ Shader "Custom/CoolToon"
             float4 _ShadowColor;
             float4 _RimColor;
             float4 _OutlineColor;
+            float4 _EmissionColor;
             float  _RimPower;
             float  _RimIntensity;
             float  _ShadowThreshold;
@@ -82,6 +90,7 @@ Shader "Custom/CoolToon"
             float  _OutlineWidth;
             float  _OutlineFixWidth;
             float  _OutlineZBias;
+            float  _BloomIntensity;
             int    _OutlineVertexR2Width;
             float  _Cutoff;
             float  _BlendMode;
@@ -98,6 +107,7 @@ Shader "Custom/CoolToon"
         CBUFFER_END
 
         TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);
+        TEXTURE2D(_EmissionMap); SAMPLER(sampler_EmissionMap);
         TEXTURE2D(_OutlineWidthMask); SAMPLER(sampler_OutlineWidthMask);
 
         // Helper functions for outline calculation (lilToon-inspired)
@@ -193,6 +203,12 @@ Shader "Custom/CoolToon"
             float fresnel = 1.0 - saturate(dot(N, V));
             float rim = pow(fresnel, _RimPower) * _RimIntensity;
             col += _RimColor.rgb * rim;
+            #endif
+            
+            #if _EMISSION
+            // Add emission for bloom effect
+            float3 emission = _EmissionColor.rgb * _BloomIntensity;
+            col += emission;
             #endif
             
             return col;
@@ -344,6 +360,14 @@ Shader "Custom/CoolToon"
                 // #endif
 
                 float3 col = ShadeToon(baseSample.rgb, IN.normalWS, IN.viewDirWS, IN.positionWS);
+                
+                #if _EMISSION
+                // Sample emission map and apply emission color with bloom intensity
+                float3 emissionSample = SAMPLE_TEXTURE2D(_EmissionMap, sampler_EmissionMap, IN.uv).rgb;
+                float3 emission = emissionSample * _EmissionColor.rgb * _BloomIntensity;
+                col += emission;
+                #endif
+                
                 col = MixFog(col, ComputeFogFactor(IN.positionCS.z));
                 
                 // Handle alpha premultiply for transparency
