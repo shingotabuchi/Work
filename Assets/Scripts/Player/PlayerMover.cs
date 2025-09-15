@@ -8,6 +8,7 @@ public class PlayerMover : Singleton<PlayerMover>
     [SerializeField] private float _sprintSpeed = 6f;
     [SerializeField] private float _speedChangeRate = 10f;
     [SerializeField] private float _lookSensitivity = 50f;
+    [SerializeField] private Transform _camTarget;
 
     private CharacterController _characterController;
     private Transform _playerTransform;
@@ -21,6 +22,10 @@ public class PlayerMover : Singleton<PlayerMover>
         base.Awake();
         _characterController = GetComponent<CharacterController>();
         _playerTransform = transform;
+        var camTargetEuler = _camTarget.localRotation.eulerAngles;
+        var euler = _playerTransform.rotation.eulerAngles;
+        _yaw = euler.y;
+        _pitch = camTargetEuler.x;
     }
 
     public void UpdateMover(float deltaTime)
@@ -34,7 +39,8 @@ public class PlayerMover : Singleton<PlayerMover>
         _pitch = Mathf.Clamp(_pitch, -90f, 90f);
         _yaw += look.x * _lookSensitivity * deltaTime;
 
-        _playerTransform.localRotation = Quaternion.Euler(_pitch, _yaw, 0);
+        _camTarget.localRotation = Quaternion.Euler(_pitch, 0, 0);
+        _playerTransform.rotation = Quaternion.Euler(0, _yaw, 0);
 
         var targetSpeed = sprint ? _sprintSpeed : _walkSpeed;
 
