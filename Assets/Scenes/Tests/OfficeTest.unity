@@ -683,6 +683,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Worker
       objectReference: {fileID: 0}
+    - target: {fileID: 8444293301566704586, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: _useDebugModel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444293301566704586, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: _useWasdInputs
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
