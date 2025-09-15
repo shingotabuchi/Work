@@ -8,6 +8,9 @@ public class AppManager : SingletonPersistent<AppManager>
     protected override void Awake()
     {
         base.Awake();
+
+        Cursor.lockState = CursorLockMode.Locked;
+
         CameraManager.CreateIfNotExists();
 
         PlayerManager.Instance.Initialize();
