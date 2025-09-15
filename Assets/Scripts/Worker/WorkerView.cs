@@ -98,4 +98,9 @@ public class WorkerView : MonoBehaviour
         _animator.SetFloat(_animIDSpeed, _animationBlend);
         // _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
     }
+
+    public void LateUpdateView(float deltaTime)
+    {
+        _faceAnimation.LateUpdateView(deltaTime);
+    }
 }

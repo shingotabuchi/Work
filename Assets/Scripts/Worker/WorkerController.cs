@@ -25,4 +25,9 @@ public class WorkerController
     {
         _view.UpdateView(deltaTime);
     }
+
+    public void LateUpdate(float deltaTime)
+    {
+        _view.LateUpdateView(deltaTime);
+    }
 }

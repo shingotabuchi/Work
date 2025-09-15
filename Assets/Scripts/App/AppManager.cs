@@ -32,6 +32,11 @@ public class AppManager : SingletonPersistent<AppManager>
 #endif
     }
 
+    private void LateUpdate()
+    {
+        WorkerManager.Instance.LateUpdate(_deltaTime);
+    }
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     private static void CreateInstance()
     {

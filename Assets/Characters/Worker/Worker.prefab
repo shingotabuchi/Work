@@ -466,6 +466,12 @@ MonoBehaviour:
   _eyeFrameRendererL: {fileID: 7440009390080787771}
   _eyeMaskRendererR: {fileID: 6202503196928711637}
   _eyeFrameRendererR: {fileID: 6982441849873049366}
+  _neckBone: {fileID: 0}
+  _lookAtTarget: {fileID: 0}
+  _eyePosition: {fileID: 0}
+  _lookAtWeight: 1
+  _invertVertical: 0
+  _invertHorizontal: 0
   EyeOpenScale: 1
   EyeOpenAmountFromAnimator: 1
   EyeOpenAmount: 1

@@ -12,6 +12,14 @@ public class WorkerManager : SingletonGeneric<WorkerManager>
         }
     }
 
+    public void LateUpdate(float deltaTime)
+    {
+        for (int i = 0; i < _workers.Length; i++)
+        {
+            _workers[i]?.LateUpdate(deltaTime);
+        }
+    }
+
     public void RegisterWorker(WorkerController worker)
     {
         for (int i = 0; i < _workers.Length; i++)
