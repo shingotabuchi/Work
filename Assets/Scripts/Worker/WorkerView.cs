@@ -1,3 +1,4 @@
+using Pathfinding;
 using UnityEngine;
 
 public class WorkerView : MonoBehaviour
@@ -10,6 +11,7 @@ public class WorkerView : MonoBehaviour
 
     private Animator _animator;
     private WorkerFaceAnimationController _faceAnimation;
+    private FollowerEntity _followerEntity;
 
     private WorkerController _controller;
     private IWorkerModel _model;
@@ -27,6 +29,7 @@ public class WorkerView : MonoBehaviour
     {
         _animator = GetComponentInChildren<Animator>();
         _faceAnimation = GetComponentInChildren<WorkerFaceAnimationController>();
+        _followerEntity = GetComponent<FollowerEntity>();
 
         _controller = new WorkerController(this);
         _model = _controller.Model;
@@ -91,12 +94,11 @@ public class WorkerView : MonoBehaviour
         var targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
         // _characterController.Move(targetDirection.normalized * _speed * deltaTime);
-
-        _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, deltaTime * _model.SpeedChangeRate);
+        Debug.Log(_followerEntity.velocity.magnitude);
+        _animationBlend = Mathf.Lerp(_animationBlend, _followerEntity.velocity.magnitude, deltaTime * _model.SpeedChangeRate);
         if (_animationBlend < 0.01f) _animationBlend = 0f;
 
-        _animator.SetFloat(_animIDSpeed, _animationBlend);
-        // _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
+        _animator.SetFloat(_animIDSpeed, _followerEntity.velocity.magnitude);
     }
 
     public void LateUpdateView(float deltaTime)
