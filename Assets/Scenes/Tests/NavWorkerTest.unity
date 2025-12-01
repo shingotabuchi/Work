@@ -579,6 +579,10 @@ PrefabInstance:
       propertyPath: _lookAtTarget
       value: 
       objectReference: {fileID: 1411554901}
+    - target: {fileID: 7104051037698887469, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: _lookAtWeight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -870,6 +874,10 @@ PrefabInstance:
       propertyPath: _lookAtTarget
       value: 
       objectReference: {fileID: 1411554901}
+    - target: {fileID: 7104051037698887469, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: _lookAtWeight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1610,6 +1618,10 @@ PrefabInstance:
       propertyPath: _lookAtTarget
       value: 
       objectReference: {fileID: 1411554901}
+    - target: {fileID: 7104051037698887469, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: _lookAtWeight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1790,6 +1802,10 @@ PrefabInstance:
       propertyPath: _lookAtTarget
       value: 
       objectReference: {fileID: 1411554901}
+    - target: {fileID: 7104051037698887469, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: _lookAtWeight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1970,6 +1986,10 @@ PrefabInstance:
       propertyPath: _lookAtTarget
       value: 
       objectReference: {fileID: 1411554901}
+    - target: {fileID: 7104051037698887469, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: _lookAtWeight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2039,6 +2059,10 @@ PrefabInstance:
       propertyPath: _lookAtTarget
       value: 
       objectReference: {fileID: 1411554901}
+    - target: {fileID: 7104051037698887469, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: _lookAtWeight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2219,6 +2243,10 @@ PrefabInstance:
       propertyPath: _lookAtTarget
       value: 
       objectReference: {fileID: 1411554901}
+    - target: {fileID: 7104051037698887469, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: _lookAtWeight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3180,6 +3208,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8253806174040427836, guid: 56dd8bb9c40f4fd41b670166da13cce3, type: 3}
+      propertyPath: _walkSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8253806174040427836, guid: 56dd8bb9c40f4fd41b670166da13cce3, type: 3}
+      propertyPath: _sprintSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8253806174040427836, guid: 56dd8bb9c40f4fd41b670166da13cce3, type: 3}
+      propertyPath: _lookSensitivity
+      value: 250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3805,6 +3845,10 @@ PrefabInstance:
       propertyPath: _lookAtTarget
       value: 
       objectReference: {fileID: 1411554901}
+    - target: {fileID: 7104051037698887469, guid: e258221d202124d29a427c045d308c6e, type: 3}
+      propertyPath: _lookAtWeight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

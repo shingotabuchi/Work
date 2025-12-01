@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: 571667b382c4ded408a0d8c4173b84e8
+AssetOrigin:
+  serializedVersion: 1
+  productId: 87744
+  packageName: A* Pathfinding Project Pro
+  packageVersion: 5.3.8
+  assetPath: Packages/com.arongranberg.astar/ExampleScenes~/Scenes/RecastTerrain/RecastTerrain/Lightmap-0_comp_dir.png
+  uploadId: 764484
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,6 +126,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites: []
@@ -133,16 +166,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
     nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 87744
-  packageName: A* Pathfinding Project Pro
-  packageVersion: 5.3.8
-  assetPath: Packages/com.arongranberg.astar/ExampleScenes~/Scenes/RecastTerrain/RecastTerrain/Lightmap-0_comp_dir.png
-  uploadId: 764484

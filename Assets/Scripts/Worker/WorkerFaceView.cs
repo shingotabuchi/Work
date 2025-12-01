@@ -24,7 +24,7 @@ public class WorkerFaceAnimationController : MonoBehaviour
 
     private Animator _animator;
     private Quaternion _initialNeckRotation;
-
+    
     private void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
