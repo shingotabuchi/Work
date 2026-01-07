@@ -558,7 +558,13 @@ MonoBehaviour:
   _neckBone: {fileID: 4194947149932352392}
   _lookAtTarget: {fileID: 0}
   _eyePosition: {fileID: 7666630481998065391}
-  _lookAtWeight: 1
+  _lookAtWeight: 0.18869333
+  _targetLookAtWeight: 0
+  _lookAtWeightLerpRate: 5
+  _lookAtFov: 90
+  _lookAtRange: 10
+  _lookAtChancePerSecond: 0.2
+  _blinkChancePerSecond: 0.15
   _invertVertical: 0
   _invertHorizontal: 0
   _maxIterations: 5

@@ -13,8 +13,50 @@ MonoBehaviour:
   m_Name: Sprites
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Sprites
-  m_GUID: e1e2db4a39b314956ad719e2cfaf017e
-  m_SerializeEntries: []
+  m_GUID: fd5cfb0c9e1d842f0926e98c682dd4b2
+  m_SerializeEntries:
+  - m_GUID: 4b3cf3b851a0546b2ac240a2592d4cbe
+    m_Address: Assets/AddressableResources/Sprites/1000003255.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92162afc94af94c32ba5c1373692abc8
+    m_Address: Assets/AddressableResources/Sprites/1000003254.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0b6dc3044c8140a3bb75a5538323c28
+    m_Address: Assets/AddressableResources/Sprites/1000003251.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b90f32ccbfbde428da62e696533d5a18
+    m_Address: Assets/AddressableResources/Sprites/1000003252.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9c7b5107fb1340f3b98fa8a981fa182
+    m_Address: Assets/AddressableResources/Sprites/1000003250.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f351774af4e504259b17ad62c0a41410
+    m_Address: Assets/AddressableResources/Sprites/1000003253.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7c03dbe244a146c393c03a20da6c014
+    m_Address: Assets/AddressableResources/Sprites/1000003256.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0c7ca34056e1b4710b841a9c6c0ee55d, type: 2}
   m_SchemaSet:

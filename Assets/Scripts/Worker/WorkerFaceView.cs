@@ -10,6 +10,15 @@ public class WorkerFaceAnimationController : MonoBehaviour
     [SerializeField] private Transform _lookAtTarget;
     [SerializeField] private Transform _eyePosition;
     [SerializeField][Range(0, 1)] private float _lookAtWeight = 1.0f;
+    [SerializeField][Range(0, 1)] private float _targetLookAtWeight = 1.0f;
+    [SerializeField] private float _lookAtWeightLerpRate = 5.0f;
+    [SerializeField][Range(0, 180)] private float _lookAtFov = 90.0f;
+    [SerializeField] private float _lookAtRange = 10.0f;
+    [SerializeField][Range(0, 1)] private float _lookAtChancePerSecond = 0.2f;
+    
+    [Header("Blink Settings")]
+    [SerializeField][Range(0, 1)] private float _blinkChancePerSecond = 0.15f;
+    
     [SerializeField] private bool _invertVertical = false;
     [SerializeField] private bool _invertHorizontal = false;
 
@@ -24,6 +33,13 @@ public class WorkerFaceAnimationController : MonoBehaviour
 
     private Animator _animator;
     private Quaternion _initialNeckRotation;
+    private bool _isLookingAt = false;
+    
+    public float TargetLookAtWeight
+    {
+        get => _targetLookAtWeight;
+        set => _targetLookAtWeight = Mathf.Clamp01(value);
+    }
     
     private void Awake()
     {
@@ -40,6 +56,71 @@ public class WorkerFaceAnimationController : MonoBehaviour
         _eyeFrameRendererL.SetBlendShapeWeight(0, blink);
         _eyeMaskRendererR.SetBlendShapeWeight(0, blink);
         _eyeFrameRendererR.SetBlendShapeWeight(0, blink);
+        
+        // Check if target is within FOV and range
+        if (_lookAtTarget != null && _eyePosition != null)
+        {
+            Vector3 toTarget = _lookAtTarget.position - _eyePosition.position;
+            float distance = toTarget.magnitude;
+            
+            bool canLookAt = false;
+            
+            // Check range
+            if (distance <= _lookAtRange)
+            {
+                // Check FOV using body/transform forward direction
+                Vector3 directionToTarget = toTarget.normalized;
+                Vector3 bodyForward = transform.forward;
+                float angle = Vector3.Angle(bodyForward, directionToTarget);
+                
+                if (angle <= _lookAtFov)
+                {
+                    canLookAt = true;
+                }
+            }
+            
+            // Handle looking state
+            if (!canLookAt)
+            {
+                // Target is out of range or FOV, stop looking
+                _isLookingAt = false;
+                _targetLookAtWeight = 0.0f;
+            }
+            else if (!_isLookingAt)
+            {
+                // Can look but not currently looking, random chance to start
+                float chanceThisFrame = _lookAtChancePerSecond * deltaTime;
+                if (Random.value < chanceThisFrame)
+                {
+                    _isLookingAt = true;
+                    _targetLookAtWeight = 1.0f;
+                }
+                else
+                {
+                    _targetLookAtWeight = 0.0f;
+                }
+            }
+            else
+            {
+                // Already looking and target is valid
+                _targetLookAtWeight = 1.0f;
+            }
+        }
+        else
+        {
+            _isLookingAt = false;
+            _targetLookAtWeight = 0.0f;
+        }
+        
+        // Lerp lookAtWeight towards targetLookAtWeight
+        _lookAtWeight = Mathf.Lerp(_lookAtWeight, _targetLookAtWeight, _lookAtWeightLerpRate * deltaTime);
+        
+        // Random blink chance
+        float blinkChanceThisFrame = _blinkChancePerSecond * deltaTime;
+        if (Random.value < blinkChanceThisFrame)
+        {
+            Blink();
+        }
     }
 
     public void LateUpdateView(float deltaTime)
@@ -119,7 +200,10 @@ public class WorkerFaceAnimationController : MonoBehaviour
 #endif
     private void Blink()
     {
-        _animator.Play("Blink", 1, 0);
+        if (_animator != null)
+        {
+            _animator.SetTrigger("Blink");
+        }
     }
 
 #if UNITY_EDITOR
